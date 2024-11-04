@@ -1,3 +1,5 @@
+"use strict";
+
 window.onload = () => {
     const all = document.getElementsByTagName("pre");
     console.log(all);
@@ -7,16 +9,6 @@ window.onload = () => {
     const convert = document.getElementById("convert");
     const copy = document.getElementById("copy");
     const demo = document.querySelector("pre");
-    input.value = `class AAA {
-    int a = 12;
-    int b = 13;
-    int c = 14;
-    let kk = 15;
-    const ff = 18;
-    for (let index = 0; index < 10; ++index) {
-       @object[index] = index;
-    } //loop
-}`;
 
     const highlighter = new Highlighter({ globalClass: "highlighter" });
     const convertHandler = () => {
@@ -40,6 +32,15 @@ window.onload = () => {
             }
         } //if
     } //window.onkeydown
+
+    const inputLanguageHandler = () => {
+        if (codeSampleMap[inputLanguage.value]) {
+            input.value = codeSampleMap[inputLanguage.value];
+            convertHandler();
+        } //if
+    } //inputLanguageHandler
+    inputLanguage.onchange = inputLanguageHandler;
+    inputLanguageHandler();
 
     input.focus();
 

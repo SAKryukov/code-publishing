@@ -1,3 +1,36 @@
+"use strict";
+
+const codeSampleMap = {
+
+////////////////////////////////////////////////
+
+javascript: `class AAA {
+    value = 3;
+    constructor () {
+        let s = \`multiline \${this.value}
+              template string\`;
+    }
+}`,
+
+////////////////////////////////////////////////
+
+csharp: `class AAA {
+    int a = 12;
+    int b = 13;
+    int c = 14;
+    let kk = 15;
+    const ff = 18;
+    void F() {
+        for (let index = 0; index < 10; ++index) {
+           @object[index] = index;
+           target[index] = index + 1;
+        } //loop
+    } //F
+}`,
+
+////////////////////////////////////////////////
+
+html: `
 <!DOCTYPE html>
 <head>
     <script src="../highlighter/highlighter.js"></script>
@@ -38,4 +71,8 @@
     <textarea id="output" spellcheck="false" readonly="true">
     </textarea>
     <pre></pre>
-</html>
+</html>`,
+
+////////////////////////////////////////////////
+
+}
