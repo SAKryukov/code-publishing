@@ -5,9 +5,7 @@
  *
  * @author Sergey A Kryukov, https://www.SAKryukov.org
  * @author Craig Campbell, original author of Rainbow, see https://github.com/ccampbell/rainbow
- */
-
-Craig Campbell's [Rainbow](https://github.com/ccampbell/rainbow
+*/
 
 const RuleSet = {
     inheritenceMap: {},
