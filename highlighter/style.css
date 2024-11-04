@@ -53,8 +53,9 @@ pre span.string.highlighter,
 pre span.comment.docstring.highlighter
 {
     color: #D20;
-    background-color: #FFF0F0
 }
+
+span.template.string.highlighter { color: orange; font-style: italic; }
 
 pre span.string.regexp.highlighter {
     background-color: #FFF0FF;
@@ -104,5 +105,3 @@ pre span.support.method.highlighter
     color: #C00;
     font-weight: bold
 }
-
-span.template.string.highlighter { color: orange; font-style: italic; }

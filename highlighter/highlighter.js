@@ -380,17 +380,12 @@ const Highlighter = function Highlighter(options) {
 
     this.colorize = (code, language) => {
         currentLanguage = language;
-        const codeLines = code.split("\n");
-        let coloredCode = [];
         const patternList = RuleSet.getPatternsForLanguage(language);
-        for (let line of codeLines) {
-            const processedLine = processCodeWithPatterns(htmlEntities(line), patternList);
-            replacements = {};
-            replacementPositions = {};
-            currentLanguage = undefined;
-            coloredCode.push(processedLine);
-        } //loop
-        return coloredCode.join("\n");
+        // important fix: clean-up:
+        replacements = {};
+        replacementPositions = {};
+        const processed = processCodeWithPatterns(htmlEntities(code), patternList);
+        return processed;
     } //this.colorize
 
 };

@@ -18,7 +18,7 @@ RuleSet.extend('javascript', [
     },
     {
         name: 'template.string',
-        pattern: /`(.*?)`/g
+        pattern: /`([^]*?)`/gm
     },
     {
         name: 'keyword',
