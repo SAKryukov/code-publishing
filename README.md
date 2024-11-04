@@ -13,4 +13,4 @@ have been rewritten using more modern JavaScript, and multiple problems have bee
 [Rainbow](https://github.com/ccampbell/rainbow) contributors:
 Craig Campbell, Daniel Holden, Dan Stewart, Matthew Brennan Jones, Javier Aguirre, Bruno Dias, Leo Accend, Nijiko Yonskai, Simon Potter, Matthew King, Alex Queiroz, Frank Shearar, and Jan Navratil.
 
-Their names can be found in highlighter/language.
+Their names can be found in [highlighter/language](https://github.com/SAKryukov/code-publishing/tree/main/highlighter/language).
