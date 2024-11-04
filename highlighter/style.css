@@ -3,6 +3,10 @@ pre span.multiline.comment.highlighter
 {
     color: #888
 }
+pre span.pascal.multiline.comment.highlighter
+{
+    color: #367
+}
 
 pre span.keyword.highlighter,
 pre span.selector.highlighter,
