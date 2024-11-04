@@ -367,8 +367,8 @@ const Highlighter = function Highlighter(options) {
      * @param {Array} patterns
      * @return {string}
      */
-    const processCodeWithPatterns = (code, patterns2) => {
-        for (let pattern of patterns2) {
+    const processCodeWithPatterns = (code, patternsList) => {
+        for (let pattern of patternsList) {
             let result = processPattern(pattern, code);
             while (result)
                 result = processPattern(pattern, result.remaining, result.offset);
