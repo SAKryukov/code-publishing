@@ -164,8 +164,8 @@ const Highlighter = function Highlighter(options) {
      */
     const processReplacements = code => {
         const positions = keys(replacements);
-        for (let i = 0, list = positions; i < list.length; i += 1) {
-            const position = list[i];
+        for (let index = 0, list = positions; index < list.length; ++index) {
+            const position = list[index];
             const replacement = replacements[position];
             code = replaceAtPosition(position, replacement.replace, replacement.with, code);
         } //loop
