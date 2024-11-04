@@ -1,0 +1,6 @@
+span.keyword.highlighter { color: red; font-weight: bold; }
+span.string.highlighter { color: red; font-style: italic; }
+span.class.highlighter, span.storage.type.class.highlighter { color: navy; font-weight: bold; }
+span.entity.name.class.highlighter { color: brown; }
+span.operator.highlighter { color: blue; }
+span.comment.highlighter { color: green; }

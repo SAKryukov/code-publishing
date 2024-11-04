@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <script src="../decorator/source-code-decorator.js"></script>
+    <style>
+        @import url(../decorator/source-code-decorator.css);
+        * { font-family: sans-serif; }
+        summary:has(+ pre) > span:last-child { font-size: 90%; }
+        summary + pre { margin-top: 0; }
+        pre, pre b { font-family: monospace; font-weight: normal; }
+        pre b.keyword { color: blue; }
+        pre b.comment { color: green; }
+        pre b.string { color: darkMagenta; }
+        main:has(p) { color: red; }
+    </style>
+</head>
+<html>
+    <body>
+        <p>Consider simple enum declaration (borrowed from <a href="http://en.wikipedia.org/wiki/Enumerated_type">Wikipedia article on enumerated type</a>):</p>
+        <pre lang="C#">
+<b class="keyword">enum</b> CardSuit { Clubs, Diamonds, Spades, Hearts, }
+
+<b class="comment">// will not compile:</b>
+<b class="keyword">foreach</b>(CardSuit item <b class="keyword">in</b> CardSuit) {
+    <b class="keyword">var</b> x = <b class="string">"sample string"</b>;
+    <b class="comment">// use item&hellip;</b>
+} <b class="comment">//loop</b>
+        </pre>
+
+<p>Alternative example:</p>
+<pre>
+<b class="comment">// Language is not specified</b>
+<b class="keyword">enum</b> CardSuit { Clubs, Diamonds, Spades, Hearts, }
+
+<b class="comment">// will not compile:</b>
+<b class="keyword">foreach</b>(CardSuit item <b class="keyword">in</b> CardSuit) {
+    <b class="keyword">var</b> x = <b class="string">"sample string"</b>;
+    <b class="comment">// use item&hellip;</b>
+} <b class="comment">//loop</b>
+</pre>
+
+    </body>
+</html>
