@@ -33,12 +33,11 @@ window.onload = () => {
         if (event.code == "F2") {
             convertHandler();
             event.preventDefault();
-        } else if (event.ctrlKey && event.code == "KeyC") {
-            copyHandler();
-            event.preventDefault();
-        } else if (event.ctrlKey && event.code == "Insert") {
-            copyHandler();
-            event.preventDefault();
+        } else if (input.selectionStart == input.selectionEnd && event.ctrlKey) {
+            if (event.code == "KeyC" || event.code == "Insert") {
+                copyHandler();
+                event.preventDefault();    
+            }
         } //if
     } //window.onkeydown
 
