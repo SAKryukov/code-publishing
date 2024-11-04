@@ -384,8 +384,7 @@ const Highlighter = function Highlighter(options) {
         // important fix: clean-up:
         replacements = {};
         replacementPositions = {};
-        const processed = processCodeWithPatterns(htmlEntities(code), patternList);
-        return processed;
+        return processCodeWithPatterns(htmlEntities(code), patternList);
     } //this.colorize
 
 };
