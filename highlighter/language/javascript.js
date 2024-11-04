@@ -2,6 +2,7 @@
  * Javascript patterns
  *
  * @author Craig Campbell
+ * @author Sergey A Kryukov
  */
 RuleSet.extend('javascript', [
 

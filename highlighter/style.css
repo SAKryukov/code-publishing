@@ -1,4 +1,5 @@
-pre span.comment.highlighter
+pre span.comment.highlighter,
+pre span.multiline.comment.highlighter
 {
     color: #888
 }
