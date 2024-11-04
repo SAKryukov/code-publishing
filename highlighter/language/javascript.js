@@ -17,6 +17,10 @@ RuleSet.extend('javascript', [
         pattern: /\b(window|document)\b/g
     },
     {
+        name: 'template.string',
+        pattern: /`(.*?)`/g
+    },
+    {
         name: 'keyword',
         pattern: /\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|false|finally|for|function|if|import|in|instanceof|new|null|return|super|switch|this|throw|true|try|typeof|var|void|while|with|let|static|yield |await|enum|implements|interface|package|private|protected|public)\b/g
     },
