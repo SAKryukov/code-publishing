@@ -1,7 +1,108 @@
-span.keyword.highlighter { color: red; font-weight: bold; }
-span.string.highlighter { color: red; font-style: italic; }
+pre span.comment.highlighter
+{
+    color: #888
+}
+
+pre span.keyword.highlighter,
+pre span.selector.highlighter,
+pre span.storage.module.highlighter,
+pre span.storage.class.highlighter,
+pre span.storage.function.highlighter
+{
+    color: #080;
+    font-weight: bold
+}
+
+pre span.operator.highlighter
+{
+    color: magenta;
+}
+
+
+pre span.keyword.operator.highlighter{
+    color: #000;
+    font-weight: normal
+}
+
+pre span.constant.language.highlighter
+{
+    color: #038;
+    font-weight: bold
+}
+
+pre span.constant.symbol.highlighter,
+pre span.class.highlighter,
+pre span.constant.highlighter {
+    color: #036;
+    font-weight: bold
+}
+
+pre span.keyword.namespace.highlighter,
+pre span.entity.name.class.highlighter
+{
+    color: #B06;
+    font-weight: bold
+}
+
+pre span.constant.numeric.highlighter {
+    color: #00D;
+    font-weight: bold
+}
+
+pre span.string.highlighter,
+pre span.comment.docstring.highlighter
+{
+    color: #D20;
+    background-color: #FFF0F0
+}
+
+pre span.string.regexp.highlighter {
+    background-color: #FFF0FF;
+    color: #808
+}
+
+pre span.variable.instance.highlighter {
+    color: #33B
+}
+
+pre span.entity.name.function.highlighter {
+    color: #06B;
+    font-weight: bold
+}
+
+pre span.support.tag-name.highlighter,
+pre span.entity.tag.script.highlighter,
+pre span.entity.tag.style.highlighter,
+code .support.tag-name.highlighter
+{
+    color: #070
+}
+
+pre span.support.attribute.highlighter
+{
+    color: #007;
+    font-style: italic
+}
+
+pre span.entity.name.tag.highlighter,
+pre span.storage.type.highlighter
+{
+    color: #070;
+    font-weight: bold
+}
+
+pre span.variable.self.highlighter,
+pre span.support.function.highlighter {
+    color: #038;
+    font-weight: bold
+}
+
+pre span.entity.function.highlighter,
+pre span.support.magic.highlighter,
+pre span.support.method.highlighter
+{
+    color: #C00;
+    font-weight: bold
+}
+
 span.template.string.highlighter { color: orange; font-style: italic; }
-span.class.highlighter, span.storage.type.highlighter { color: navy; font-weight: bold; }
-span.entity.name.class.highlighter { color: brown; }
-span.keyword.operator.highlighter, span.operator.highlighter { color: blue; }
-span.comment.highlighter { color: green; }
