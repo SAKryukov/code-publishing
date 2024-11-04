@@ -4,17 +4,23 @@ const codeSampleMap = {
 
 ////////////////////////////////////////////////
 
-javascript: `class AAA {
+javascript: `
+
+class AAA {
     value = 3;
     constructor () {
         let s = \`multiline \${this.value}
               template string\`;
     }
-}`,
+} //class AAA
+
+`,
 
 ////////////////////////////////////////////////
 
-csharp: `class AAA {
+csharp: `
+
+class AAA {
     int a = 12;
     int b = 13;
     int c = 14;
@@ -26,11 +32,14 @@ csharp: `class AAA {
            target[index] = index + 1;
         } //loop
     } //F
-}`,
+} //class AAA
+
+`,
 
 ////////////////////////////////////////////////
 
 html: `
+
 <!DOCTYPE html>
 <head>
     <script src="../highlighter/highlighter.js"></script>
@@ -71,7 +80,9 @@ html: `
     <textarea id="output" spellcheck="false" readonly="true">
     </textarea>
     <pre></pre>
-</html>`,
+</html>
+
+`,
 
 ////////////////////////////////////////////////
 

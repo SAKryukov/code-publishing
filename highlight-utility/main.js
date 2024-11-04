@@ -35,7 +35,7 @@ window.onload = () => {
 
     const inputLanguageHandler = () => {
         if (codeSampleMap[inputLanguage.value]) {
-            input.value = codeSampleMap[inputLanguage.value];
+            input.value = codeSampleMap[inputLanguage.value].trim();
             convertHandler();
         } //if
     } //inputLanguageHandler
