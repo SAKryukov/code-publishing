@@ -1,5 +1,14 @@
 "use strict";
 
+/**
+ * Syntax highlighter
+ *
+ * @author Sergey A Kryukov, https://www.SAKryukov.org
+ * @author Craig Campbell, original author of Rainbow, see https://github.com/ccampbell/rainbow
+ */
+
+Craig Campbell's [Rainbow](https://github.com/ccampbell/rainbow
+
 const RuleSet = {
     inheritenceMap: {},
     patterns: {},
@@ -10,7 +19,7 @@ const RuleSet = {
         // for a javascript function that is not in the base javascript rules, you
         // should be able to do
         //
-        // RuleSet.extend('javascript', [ … ]);
+        // RuleSet.extend('javascript', [ ... ]);
         //
         // Without specifying a language it should inherit (generic in this case)
         if (!this.inheritenceMap[language])

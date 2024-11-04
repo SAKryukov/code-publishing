@@ -1,5 +1,12 @@
 "use strict";
 
+/**
+ * Source code decorator
+ * Creates a header to a <pre> code fragment, containing the name of the computing language and an element to copy it to the clipboard
+ *
+ * @author Sergey A Kryukov, https://www.SAKryukov.org
+ */
+
 window.onload = () => {
 
     const preCodeElements = document.querySelectorAll("pre");
@@ -19,4 +26,3 @@ window.onload = () => {
     } //loop
 
 };
-        
