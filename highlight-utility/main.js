@@ -1,7 +1,6 @@
 "use strict";
 
 window.onload = () => {
-    const all = document.getElementsByTagName("pre");
     const inputLanguage = document.querySelector("select");
     const input = document.getElementById("input");
     const output = document.getElementById("output");
@@ -30,14 +29,14 @@ window.onload = () => {
                 event.preventDefault();    
             }
         } //if
-    } //window.onkeydown
+    }; //window.onkeydown
 
     const inputLanguageHandler = () => {
         if (codeSampleMap[inputLanguage.value]) {
             input.value = codeSampleMap[inputLanguage.value].trim();
             convertHandler();
         } //if
-    } //inputLanguageHandler
+    }; //inputLanguageHandler
     inputLanguage.onchange = inputLanguageHandler;
     inputLanguageHandler();
 
