@@ -85,7 +85,7 @@ const Highlighter = function Highlighter(options) {
                 locations.push(location);
         } //loop
         // numeric descending
-        return locations.sort( (a, b) => b - a );
+        return locations.sort((a, b) => b - a);
     }; //Highlighter.keys
 
     const htmlEntities = (code) =>
@@ -343,7 +343,8 @@ const Highlighter = function Highlighter(options) {
             // so we convert it here.
             localCode = highlighter.colorize(block, currentLanguage, groupToProcess.length ? groupToProcess : [groupToProcess]);
             getReplacement(block, localCode, group.matches ? group.name : 0);
-        }
+        } //processGroup
+
         // If this pattern has sub matches for different groups in the regex
         // then we should process them one at a time by running them through
         // the processGroup function to generate the new replacement.
@@ -358,7 +359,7 @@ const Highlighter = function Highlighter(options) {
         } //loop
         // Finally, call `onMatchSuccess` with the replacement
         return onMatchSuccess(replacement);
-    }; //processGroup
+    }; //processPattern
 
     /**
      * Processes a block of code using specified patterns
@@ -378,13 +379,13 @@ const Highlighter = function Highlighter(options) {
         return processReplacements(code);
     }; //processCodeWithPatterns
 
-    this.colorize = (code, language) => {
+    this.colorize = (code, language, patterns) => {
         currentLanguage = language;
-        const patternList = RuleSet.getPatternsForLanguage(language);
+        const patternList = patterns || RuleSet.getPatternsForLanguage(language);
         // important fix: clean-up:
         replacements = {};
         replacementPositions = {};
         return processCodeWithPatterns(htmlEntities(code), patternList);
     } //this.colorize
 
-};
+}; //Highlighter
