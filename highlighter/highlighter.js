@@ -109,7 +109,6 @@ const Highlighter = function Highlighter(options) {
     }; //Highlighter.indexOfGroup
 
     let replacements = {};
-    let currentLanguage;
     let replacementPositions = {};
 
     /**
@@ -207,7 +206,7 @@ const Highlighter = function Highlighter(options) {
      * @param {number} offset
      * @return {mixed}
      */
-    const processPattern = (pattern, code, offset) => {
+    const processPattern = (language, pattern, code, offset) => {
         if (offset === void 0) offset = 0;
         let regex = pattern.pattern;
         if (!regex)
@@ -277,13 +276,13 @@ const Highlighter = function Highlighter(options) {
          * @param {number} groupKey  index of group
          * @return {void}
          */
-        const processGroup = groupKey => {
+        const processGroup = (language, groupKey) => {
             const block = match[groupKey];
             // If there is no match here then move on
             if (!block)
                 return;
             const group = pattern.matches[groupKey];
-            const language = group.language;
+            const groupLanguage = group.language;
             /**
              * Process group is what group we should use to actually process
              * this match group.
@@ -333,15 +332,15 @@ const Highlighter = function Highlighter(options) {
             let highlighter = new Highlighter(options);
             // If this is a sublanguage go and process the block using
             // that language
-            if (language) {
-                localCode = highlighter.colorize(block, language);
+            if (groupLanguage) {
+                localCode = highlighter.colorize(block, groupLanguage);
                 getReplacement(block, localCode);
                 return;
             }
             // The process group can be a single pattern or an array of
             // patterns. `processCodeWithPatterns` always expects an array
             // so we convert it here.
-            localCode = highlighter.colorize(block, currentLanguage, groupToProcess.length ? groupToProcess : [groupToProcess]);
+            localCode = highlighter.colorize(block, language, groupToProcess.length ? groupToProcess : [groupToProcess]);
             getReplacement(block, localCode, group.matches ? group.name : 0);
         } //processGroup
 
@@ -355,7 +354,7 @@ const Highlighter = function Highlighter(options) {
         const groupKeys = keys(pattern.matches);
         for (let index = 0, list = groupKeys; index < list.length; ++index) {
             const groupKey = list[index];
-            processGroup(groupKey);
+            processGroup(language, groupKey);
         } //loop
         // Finally, call `onMatchSuccess` with the replacement
         return onMatchSuccess(replacement);
@@ -368,11 +367,11 @@ const Highlighter = function Highlighter(options) {
      * @param {Array} patterns
      * @return {string}
      */
-    const processCodeWithPatterns = (code, patternsList) => {
+    const processCodeWithPatterns = (language, code, patternsList) => {
         for (let pattern of patternsList) {
-            let result = processPattern(pattern, code);
+            let result = processPattern(language, pattern, code);
             while (result)
-                result = processPattern(pattern, result.remaining, result.offset);
+                result = processPattern(language, pattern, result.remaining, result.offset);
         } //loop
         // We are done processing the patterns so we should actually replace
         // what needs to be replaced in the code.
@@ -380,12 +379,11 @@ const Highlighter = function Highlighter(options) {
     }; //processCodeWithPatterns
 
     this.colorize = (code, language, patterns) => {
-        currentLanguage = language;
         const patternList = patterns || RuleSet.getPatternsForLanguage(language);
         // important fix: clean-up:
         replacements = {};
         replacementPositions = {};
-        return processCodeWithPatterns(htmlEntities(code), patternList);
+        return processCodeWithPatterns(language, htmlEntities(code), patternList);
     } //this.colorize
 
 }; //Highlighter
