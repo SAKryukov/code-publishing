@@ -2,11 +2,16 @@
  * Coffeescript patterns
  *
  * @author Craig Campbell
+* @author Sergey A Kryukov
  */
 RuleSet.extend('coffeescript', [
     {
         name: 'comment.block',
         pattern: /(\#{3})[\s\S]*\1/gm
+    },
+    {
+        name: 'comment',
+        pattern: /#.*$/gm
     },
     {
         name: 'string.block',
