@@ -88,6 +88,7 @@ html: `
 
 cpp:
  `
+#include <test.h>
 
 namespace SA {
 

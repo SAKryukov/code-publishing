@@ -2,7 +2,6 @@
 
 window.onload = () => {
     const all = document.getElementsByTagName("pre");
-    console.log(all);
     const inputLanguage = document.querySelector("select");
     const input = document.getElementById("input");
     const output = document.getElementById("output");

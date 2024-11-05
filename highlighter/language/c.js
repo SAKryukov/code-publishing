@@ -3,8 +3,14 @@
  *
  * @author Daniel Holden
  * @author Craig Campbell
+ * @author Sergey A Kryukov
  */
 RuleSet.extend('c', [
+    {
+        name: 'preprocessor.keyword',
+        pattern: /#(if|elif|else|endif|ifdef|ifndef|elifdef|elifndef|define|undef|include|line|error|warning|pragma|defined|__has_include|__has_cpp_attribute|export|import|module)\b/g
+    },
+    /*
     {
         name: 'meta.preprocessor',
         matches: {
@@ -35,6 +41,7 @@ RuleSet.extend('c', [
         },
         pattern: /\#([\S\s]*?)$/gm
     },
+    */
     {
         name: 'keyword',
         pattern: /\b(do|goto|typedef)\b/g
@@ -64,5 +71,5 @@ RuleSet.extend('c', [
     {
         name: 'support.type',
         pattern: /\b(struct|union|enum)\b/g
-    }
+    },
 ], 'generic');

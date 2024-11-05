@@ -2,6 +2,7 @@
  * Generic language patterns
  *
  * @author Craig Campbell
+ * @author Sergey A Kryukov
  */
 RuleSet.extend('generic', [
     {
@@ -28,7 +29,7 @@ RuleSet.extend('generic', [
     },
     {
         name: 'comment',
-        pattern: /\/\*[\s\S]*?\*\/|(\/\/|\#)(?!.*('|").*?[^:](\/\/|\#)).*?$/gm
+        pattern: /\/\*[\s\S]*?\*\/|(\/\/)(?!.*('|").*?[^:](\/\/)).*?$/gm
     },
     {
         name: 'constant.numeric',
