@@ -8,7 +8,7 @@
 RuleSet.extend('c', [
     {
         name: 'preprocessor.keyword',
-        pattern: /#(if|elif|else|endif|ifdef|ifndef|elifdef|elifndef|define|undef|include|line|error|warning|pragma|defined|__has_include|__has_cpp_attribute|export|import|module)\b/g
+        pattern: /#(define|elif|else|endif   |error|if|ifdef|ifndef |import|include|line   |pragma|undef|using)\b/g
     },
     /*
     {
