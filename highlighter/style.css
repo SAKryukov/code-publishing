@@ -18,6 +18,12 @@ pre span.storage.function.highlighter
     font-weight: bold
 }
 
+pre span.preprocessor.keyword.highlighter
+{
+    color: steelBlue;
+    font-weight: bold
+}
+
 pre span.operator.highlighter
 {
     color: magenta;
