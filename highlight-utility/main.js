@@ -1,13 +1,31 @@
 "use strict";
 
 window.onload = () => {
-    const all = document.getElementsByTagName("pre");
     const inputLanguage = document.querySelector("select");
     const input = document.getElementById("input");
     const output = document.getElementById("output");
     const convert = document.getElementById("convert");
     const copy = document.getElementById("copy");
     const demo = document.querySelector("pre");
+
+    const _researchHandler = () => {
+        const nameList = [];
+        const reportPattern = pattern => {
+            if (pattern.name != null)
+                nameList.push(pattern.name);
+            else if (pattern.matches != null) {
+                for (let matchIndex in pattern.matches)
+                    for (let innerPattern in pattern.matches[matchIndex])
+                        reportPattern(innerPattern);
+            } //if
+        }; //reportPattern
+        for (let index in RuleSet.patterns) {
+            const patternSet = RuleSet.patterns[index];
+            for (let pattern of patternSet)
+                reportPattern(pattern);
+        } //loop
+        output.value = nameList.join("\n"); 
+    }; //_researchHandler
 
     const highlighter = new Highlighter({ globalClass: "highlighter" });
     const convertHandler = () => {
@@ -19,6 +37,7 @@ window.onload = () => {
     const copyHandler = () => navigator.clipboard.writeText(output.value);
     
     convert.onclick = () => convertHandler();
+    convert.onclick = () => _researchHandler();
     copy.onclick = () => copyHandler();
     window.onkeydown = event => {
         if (event.code == "F2") {
@@ -30,14 +49,14 @@ window.onload = () => {
                 event.preventDefault();    
             }
         } //if
-    } //window.onkeydown
+    }; //window.onkeydown
 
     const inputLanguageHandler = () => {
         if (codeSampleMap[inputLanguage.value]) {
             input.value = codeSampleMap[inputLanguage.value].trim();
             convertHandler();
         } //if
-    } //inputLanguageHandler
+    }; //inputLanguageHandler
     inputLanguage.onchange = inputLanguageHandler;
     inputLanguageHandler();
 

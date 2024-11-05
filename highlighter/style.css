@@ -129,3 +129,46 @@ pre span.pascal.assignment.highlighter
     color: blue;
     font-weight: bold
 }
+
+/* must be implemented:
+char
+comment
+comment.html
+constant
+constant.hex-color
+constant.language
+constant.numeric
+constant.other
+entity.class
+entity.function
+entity.label
+function.call
+integer
+keyword
+keyword.operator
+keyword.static
+multiline.comment
+operator
+pascal.assignment
+pascal.multiline.comment
+preprocessor
+preprocessor.keyword
+selector
+source.css.embedded
+source.js.embedded
+source.php.embedded
+storage.modifier
+storage.type
+storage.type.function.arrow
+string
+string.regexp
+support
+support.annotation
+support.class.promise
+support.css-property
+support.tag
+support.type
+template.string
+variable.language.super
+variable.language.this
+*/
