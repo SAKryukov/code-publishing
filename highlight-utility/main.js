@@ -8,6 +8,7 @@ window.onload = () => {
     const copy = document.getElementById("copy");
     const demo = document.querySelector("pre");
 
+    /* method to collect all pattern names from all languages:
     const _researchHandler = () => {
         const nameList = [];
         const reportPattern = pattern => {
@@ -26,6 +27,7 @@ window.onload = () => {
         } //loop
         output.value = nameList.join("\n"); 
     }; //_researchHandler
+    */
 
     const highlighter = new Highlighter({ globalClass: "highlighter" });
     const convertHandler = () => {
@@ -37,7 +39,6 @@ window.onload = () => {
     const copyHandler = () => navigator.clipboard.writeText(output.value);
     
     convert.onclick = () => convertHandler();
-    convert.onclick = () => _researchHandler();
     copy.onclick = () => copyHandler();
     window.onkeydown = event => {
         if (event.code == "F2") {
