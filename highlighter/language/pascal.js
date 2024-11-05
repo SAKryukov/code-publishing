@@ -34,6 +34,14 @@ RuleSet.extend('pascal', [
         pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|")([^\\\1]|\\.)*?(\3))/gm
     },
     {
+        name: 'keyword.operator',
+        pattern: /\+|\!|\-|&(gt|lt|amp);|\||\*|\=/g
+    },
+    {
+        name: 'pascal.assignment',
+        pattern: /:=/g
+    },
+    {
         name: 'comment',
         pattern: /\/\/.*?$/g
     },

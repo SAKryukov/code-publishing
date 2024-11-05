@@ -25,7 +25,7 @@ pre span.operator.highlighter
 
 
 pre span.keyword.operator.highlighter{
-    color: #000;
+    color: darkRed;
     font-weight: normal
 }
 
@@ -108,5 +108,18 @@ pre span.support.magic.highlighter,
 pre span.support.method.highlighter
 {
     color: #C00;
+    font-weight: bold
+}
+
+pre span.preprocessor.highlighter,
+pre span.meta.preprocessor.highlighter
+{
+    color: crimson;
+    font-weight: bold
+}
+
+pre span.pascal.assignment.highlighter
+{
+    color: blue;
     font-weight: bold
 }
