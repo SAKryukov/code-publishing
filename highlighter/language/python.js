@@ -2,8 +2,13 @@
  * Python patterns
  *
  * @author Craig Campbell
+ * @author Sergey A Kryukov
  */
 RuleSet.extend('python', [
+    {
+        name: 'comment',
+        pattern: /#.*$/gm
+    },
     /**
      * don't highlight self as a keyword
      */

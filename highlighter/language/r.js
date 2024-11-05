@@ -2,8 +2,13 @@
  * R language patterns
  *
  * @author Simon Potter
+ * @author Sergey A Kryukov
  */
 RuleSet.extend('r', [
+    {
+        name: 'comment',
+        pattern: /#.*$/gm
+    },
     /**
      * Note that a valid variable name is of the form:
      * [.a-zA-Z][0-9a-zA-Z._]*
