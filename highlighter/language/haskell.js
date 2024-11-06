@@ -4,7 +4,6 @@
  * @author Bruno Dias
  * @author Sergey A Kryukov
  */
-//TODO: {-# ... #-} stuff...
 RuleSet.extend('haskell', [
 	///- Comments
 	{
