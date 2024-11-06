@@ -10,6 +10,10 @@ RuleSet.extend('javascript', [
      * matches $. or $(
      */
     {
+        name: 'magic.strict',
+        pattern: /^\s*\"use strict\";\s*$/gm
+    },
+    {
         name: 'selector',
         pattern: /\$(?=\.|\()/g
     },

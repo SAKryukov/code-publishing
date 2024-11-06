@@ -1,3 +1,9 @@
+pre span.magic.strict.highlighter
+{
+    color: darkviolet;
+    font-weight: bold;
+}
+
 pre span.comment.highlighter,
 pre span.comment.block.highlighter,
 pre span.comment.single.php.alternative.highlighter,
@@ -201,6 +207,7 @@ pre span.pascal.assignment.highlighter
 ? keyword.unit (indirect css)
 ? keyword.unit (indirect css)
 ? keyword.variable.coffee (direct coffeescript)
++ magic.strict { direct javascript }
 + meta.preprocessor (direct haskell)
 ? namespace (indirect r)
 + operator (direct csharp, d, java)
