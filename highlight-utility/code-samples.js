@@ -6,13 +6,169 @@ const codeSampleMap = {
 
 javascript: `
 
-class AAA {
-    value = 3;
-    constructor () {
-        let s = \`multiline \${this.value}
-              template string\`;
-    }
-} //class AAA
+"use strict";
+
+window.onload = () => {
+    const inputLanguage = document.querySelector("select");
+    const input = document.getElementById("input");
+    const output = document.getElementById("output");
+    const convert = document.getElementById("convert");
+    const copy = document.getElementById("copy");
+    const demo = document.querySelector("pre");
+
+//...
+
+    const highlighter = new Highlighter({ globalClass: "highlighter" });
+    const convertHandler = () => {
+        const source = input.value;
+        const result = highlighter.colorize(source, inputLanguage.value);
+        output.value = result;
+        demo.innerHTML = result;
+    }; //convertHandler
+    const copyHandler = () => navigator.clipboard.writeText(output.value);
+
+//...
+
+}; //window.onload
+
+`,
+
+////////////////////////////////////////////////
+
+pascal: `
+
+(*
+    Single-Instance Utility
+    Copyright &copy; 2016 by Sergey A Kryukov, 
+    See https://www.codeproject.com/Articles/1089948/SingleInstance-FreePascal
+*)
+unit SingleInstanceUtility;
+
+{$mode objfpc}{$H+}
+
+interface
+uses SimpleIpc;
+
+type
+TSingleInstanceUtility = class
+strict private type
+   TCommandLineFromSecondInstanceHandler = procedure(commandLine: string) of object;
+strict private
+   FOnCommandLineFromSecondInstance: TCommandLineFromSecondInstanceHandler;
+   Server: TSimpleIPCServer;
+   procedure ReceivedHandler(Sender: TObject);
+public
+   class function IsSecondInstance: boolean;
+   property OnCommandLineFromSecondInstance: TCommandLineFromSecondInstanceHandler read FOnCommandLineFromSecondInstance write FOnCommandLineFromSecondInstance;
+public
+   constructor Create;
+   destructor Destroy; override;
+strict private
+   class function SerializeCommandLine: string;
+public // helper to the server part (first-instance delegate of OnCommandLineFromSecondInstance)
+   type TCommandLineArray = array of string;
+   class function DeserializeCommandLine(commandLine: string): TCommandLineArray;
+end {TSingleInstanceUtility};
+
+implementation
+uses Classes, CmdLinePlus;
+
+const EmptyString: string = '';
+const SerializedCommandLineDelimiter : char = #1;
+
+function GetServerID: string;
+begin
+    result := CommandLine.ExeName;
+end {GetServerID};
+
+type
+TSingleInstanceServer = class(TSimpleIPCServer)
+private
+   procedure SetServerId;
+end {TSingleInstanceServer};
+procedure TSingleInstanceServer.SetServerId;
+begin
+   self.FServerID := GetServerID;
+end {TSingleInstanceServer.SetId};
+
+class function TSingleInstanceUtility.IsSecondInstance: boolean;
+var
+   client: TSimpleIPCClient;
+   commandLineMerged: string;
+begin
+   Result := false;
+   client := TSimpleIPCClient.Create(nil);
+   client.ServerID := GetServerID;
+   try
+      try
+         if not client.ServerRunning then begin
+            Result := false; exit;
+         end {if};
+         client.Connect;
+         Result := true;
+         if CommandLine.FileCount > 0 then begin
+            commandLineMerged := SerializeCommandLine;
+            client.SendStringMessage(commandLineMerged);
+         end else
+            client.SendStringMessage(EmptyString);
+      except
+         Result := false;
+      end {exception};
+   finally
+      client.Free;
+   end {exception};
+end {TSingleInstanceUtility.IsSecondInstance};
+
+class function TSingleInstanceUtility.SerializeCommandLine: string;
+var
+   fileIndex: integer;
+begin
+   Result := EmptyString;
+   for fileIndex := 0 to CommandLine.FileCount - 1 do
+      Result := Result + CommandLine.Filename[fileIndex] + SerializedCommandLineDelimiter;
+end {TSingleInstanceUtility.SerializeCommandLine};
+class function TSingleInstanceUtility.DeserializeCommandLine(commandLine: string): TCommandLineArray;
+var
+   strings: TStringList;
+   count, index: integer;
+begin
+   strings := TStringList.Create;
+   try
+      count := Classes.ExtractStrings([SerializedCommandLineDelimiter], [], pChar(commandLine), strings, false);
+      SetLength(Result, count);
+      for index := 0 to count - 1 do
+         Result[index] := strings[index];
+   finally
+      strings.Free;
+   end {exception};
+end {TSingleInstanceUtility.DeserializeCommandLine};
+
+constructor TSingleInstanceUtility.Create;
+var
+   aServer: TSingleInstanceServer;
+begin
+   aServer := TSingleInstanceServer.Create(nil);
+   aServer.Global := true;
+   aServer.SetServerId;
+   aServer.OnMessage := @ReceivedHandler;
+   aServer.StartServer;
+   Server := aServer;
+end {TSingleInstanceUtility.Create};
+procedure TSingleInstanceUtility.ReceivedHandler(Sender: TObject);
+begin
+   if Assigned(FOnCommandLineFromSecondInstance) then
+      FOnCommandLineFromSecondInstance(Server.StringMessage);
+   exit; Sender := Sender; // to shut up FP hints
+end {TSingleInstanceUtility.ReceivedHandler};
+
+destructor TSingleInstanceUtility.Destroy;
+begin
+   Server.StopServer;
+   Server.Free;
+   inherited Destroy;
+end {TSingleInstanceUtility.Destroy};
+
+end.
 
 `,
 
