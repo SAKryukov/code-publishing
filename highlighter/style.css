@@ -1,8 +1,9 @@
 pre span.comment.highlighter,
 pre span.multiline.comment.highlighter,
-pre span.comment.single.php.alternative.highlighter
+pre span.comment.single.php.alternative.highlighter,
+pre span.comment.html.highlighter
 {
-    color: #888;
+    color: #888
 }
 pre span.pascal.multiline.comment.highlighter
 {
@@ -132,9 +133,9 @@ pre span.pascal.assignment.highlighter
 }
 
 /* must be implemented:
-char
-comment
-comment.html
+char ?
+comment +
+comment.html ?
 comment.single.php.alternative
 constant
 constant.hex-color
@@ -145,32 +146,32 @@ entity.class
 entity.function
 entity.label
 function.call
-integer
-keyword
-keyword.operator
-keyword.static
-multiline.comment
-operator
-pascal.assignment
-pascal.multiline.comment
-preprocessor
-preprocessor.keyword
-selector
-source.css.embedded
-source.js.embedded
-source.php.embedded
-storage.modifier
-storage.type
-storage.type.function.arrow
-string
-string.regexp
-support
-support.annotation
-support.class.promise
-support.css-property
-support.tag
-support.type
-template.string
-variable.language.super
-variable.language.this
+integer ?
+keyword +
+keyword.operator +
+keyword.static ?
+multiline.comment +
+operator +
+pascal.assignment +
+pascal.multiline.comment +
+preprocessor +
+preprocessor.keyword +
+selector +
+source.css.embedded ?
+source.js.embedded ?
+source.php.embedded ?
+storage.modifier ?
+storage.type +
+storage.type.function.arrow ?
+string +
+string.regexp +
+support ?
+support.annotation ?
+support.class.promise ?
+support.css-property ?
+support.tag (support.tag-name?)
+support.type ?
+template.string +
+variable.language.super ?
+variable.language.this ?
 */
