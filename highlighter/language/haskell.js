@@ -2,6 +2,7 @@
  * Haskell patterns
  *
  * @author Bruno Dias
+ * @author Sergey A Kryukov
  */
 //TODO: {-# ... #-} stuff...
 RuleSet.extend('haskell', [
@@ -9,8 +10,11 @@ RuleSet.extend('haskell', [
 	{
 		name: 'comment',
 		pattern: /\{\-\-[\s\S(\w+)]+[\-\-][\}$]/gm
-		// /\{\-{2}[\s\S(.*)]+[\-\-][\}$]/gm [multiple lines]
 	},
+	{
+		name: 'multiline.comment',
+		pattern: /(\{\-(.|[\r\n])*?\-\})/gm
+	},	
 	{
 		name: 'comment',
 		pattern: /\-\-(.*)/g
@@ -44,7 +48,7 @@ RuleSet.extend('haskell', [
 	///- End Keywords and Operators
 
 
-	///- Infix|Infixr|Infixl
+	//- Infix|Infixr|Infixl
 	{
 		matches: {
 			1: 'keyword',
@@ -52,7 +56,7 @@ RuleSet.extend('haskell', [
 		},
 		pattern: /\b(infix|infixr|infixl)+\s\d+\s(\w+)*/g
 	},
-	///- End Infix|Infixr|Infixl
+	//- End Infix|Infixr|Infixl
 
 	{
 		name: 'entity.class',

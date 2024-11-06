@@ -2,8 +2,13 @@
  * PHP patterns
  *
  * @author Craig Campbell
+ * @author Sergey A Kryukov
  */
 RuleSet.extend('php', [
+    {
+        name: 'comment.single.php.alternative',
+        pattern: /#.*$/gm
+    },
     {
         name: 'support',
         pattern: /\becho\b/ig
