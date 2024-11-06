@@ -15,9 +15,9 @@ have been rewritten using more modern JavaScript, and multiple problems have bee
 
 [Syntax highlighting utility](https://sakryukov.github.io/code-publishing/highlight-utility/index.html)
 
-[Artilce demo](https://sakryukov.github.io/code-publishing/demo/index.html)
+[Color Names](https://sakryukov.github.io/color-names-js-wpf/code/js) (from the repository [SAKryukov/color-names-js-wpf](https://github.com/SAKryukov/color-names-js-wpf), useful for styling)
 
-[Color Names](https://sakryukov.github.io/color-names-js-wpf/code/js) (from the repository [SAKryukov/color-names-js-wpf](https://github.com/SAKryukov/color-names-js-wpf), usefule for styling)
+[Artilce demo](https://sakryukov.github.io/code-publishing/demo/index.html)
 
 ### Credits:
 
