@@ -29,6 +29,13 @@ window.onload = () => {
     }; //_researchHandler
     */
 
+    const selectionHandler = (event) => {
+        copy.style.display = event.target.selectionStart == event.target.selectionEnd
+            ? "inline" : "none";
+    }; //selectionHandler
+    input.onpointerup = event => selectionHandler(event);
+    input.onkeyup = event => selectionHandler(event);
+
     const highlighter = new Highlighter({ globalClass: "highlighter" });
     const convertHandler = () => {
         const source = input.value;
