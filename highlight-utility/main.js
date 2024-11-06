@@ -8,22 +8,29 @@ window.onload = () => {
     const copy = document.getElementById("copy");
     const demo = document.querySelector("pre");
 
-    /* method to collect all pattern names from all languages:
+    /* 
+    // method to collect all pattern names from all languages:
     const _researchHandler = () => {
         const nameList = [];
-        const reportPattern = pattern => {
+        const reportPattern = (name, language, indirect) => 
+            nameList.push(`${name} (${indirect? "indirect": "direct"} ${language})`);
+        const collectPattern = (language, pattern, indirect) => {
             if (pattern.name != null)
-                nameList.push(pattern.name);
+                reportPattern(pattern.name, language, indirect);
             else if (pattern.matches != null) {
                 for (let matchIndex in pattern.matches)
-                    for (let innerPattern in pattern.matches[matchIndex])
-                        reportPattern(innerPattern);
+                    for (let innerPattern in pattern.matches[matchIndex]) {
+                        if (!isNaN(innerPattern) && pattern.matches[matchIndex].constructor == String) {
+                            reportPattern(pattern.matches[matchIndex], language, true);
+                        } else
+                            collectPattern(language, innerPattern, true);
+                } //loop
             } //if
         }; //reportPattern
-        for (let index in RuleSet.patterns) {
-            const patternSet = RuleSet.patterns[index];
+        for (let language in RuleSet.patterns) {
+            const patternSet = RuleSet.patterns[language];
             for (let pattern of patternSet)
-                reportPattern(pattern);
+                collectPattern(language, pattern);
         } //loop
         output.value = nameList.join("\n"); 
     }; //_researchHandler
