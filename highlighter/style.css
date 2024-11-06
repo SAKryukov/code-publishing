@@ -1,11 +1,11 @@
 pre span.comment.highlighter,
-pre span.multiline.comment.highlighter,
+pre span.comment.block.highlighter,
 pre span.comment.single.php.alternative.highlighter,
 pre span.comment.html.highlighter
 {
     color: #888
 }
-pre span.pascal.multiline.comment.highlighter
+pre span.comment.block.pascal.highlighter
 {
     color: #367
 }
@@ -138,14 +138,15 @@ pre span.pascal.assignment.highlighter
 
 ? char (direct java)
 + comment (direct coffeescript, csharp, css, d, generic, go, haskell, haskell, java, lua, pascal, python, r, ruby, scheme, shell, smalltalk, sql)
-comment.block (direct coffeescript)
-comment.docstring (direct python)
-comment.html (direct html)
-comment.single.php.alternative (direct php, csharp, d, java, php, ruby)
-constant (indirect ruby)
-constant.hex-color (direct css)
-constant.language (direct coffeescript, generic, generic, json, lua, php, python, scheme)
-constant.language (indirect r, ruby)
++ comment.block (direct coffeescript, csharp)
++ comment.block.pascal (direct pascal)
++ comment.docstring (direct python)
++ comment.html (direct html)
++ (direct php, csharp, d, java, php, ruby)
++ constant (indirect ruby)
+? constant.hex-color (direct css)
++ constant.language (direct coffeescript, generic, generic, json, lua, php, python, scheme)
++ constant.language (indirect r, ruby)
 constant.number (direct scheme, generic, generic, json, lua, ruby, smalltalk, sql)
 constant.numeric (indirect css)
 constant.other (direct + indirect javascript)
@@ -190,12 +191,10 @@ keyword.unit (indirect css)
 keyword.unit (indirect css)
 keyword.variable.coffee (direct coffeescript)
 meta.preprocessor (direct haskell)
-multiline.comment (direct pascal)
 namespace (indirect r)
 operator (direct csharp, d, java)
 operator.delimiter (direct smalltalk)
 pascal.assignment (direct pascal)
-pascal.multiline.comment (direct pascal)
 plain (direct scheme)
 preprocessor (direct csharp)
 preprocessor.keyword (direct c, cpp)

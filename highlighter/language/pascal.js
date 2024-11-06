@@ -46,11 +46,11 @@ RuleSet.extend('pascal', [
         pattern: /\/\/.*?$/g
     },
     {
-        name: 'multiline.comment',
+        name: 'comment.block',
         pattern: /(\(\*(.|[\r\n])*?\\*\))/gm
     },
     {
-        name: 'pascal.multiline.comment',
+        name: 'comment.block.pascal',
         pattern: /(\{(.|[\r\n])*?\})/gm
     },
     {
