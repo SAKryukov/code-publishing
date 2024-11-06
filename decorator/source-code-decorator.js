@@ -9,6 +9,7 @@
 
 window.onload = () => {
 
+    const clipboardLabel = "Copy:\n\n";
     const preCodeElements = document.querySelectorAll("pre");
     for (let element of preCodeElements) {
         const summary = document.createElement("summary");
@@ -18,11 +19,15 @@ window.onload = () => {
         const right = document.createElement("span");
         left.textContent = language;
         right.textContent = String.fromCodePoint(0x1F4CB);
-        right.title = element.textContent;
-        right.onclick = event => navigator.clipboard.writeText(event.target.title);
+        right.title = `${clipboardLabel}${element.textContent}`;
+        right.onclick = event => 
+            navigator.clipboard.writeText(
+                event.target.title.slice(clipboardLabel.length));
         summary.appendChild(left);
         summary.appendChild(right);
         element.parentElement.insertBefore(summary, element);
     } //loop
 
 };
+      
+        
