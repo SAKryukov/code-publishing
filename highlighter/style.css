@@ -2,7 +2,7 @@ pre span.comment.highlighter,
 pre span.multiline.comment.highlighter,
 pre span.comment.single.php.alternative.highlighter
 {
-    color: #888; font-size: 200%;
+    color: #888;
 }
 pre span.pascal.multiline.comment.highlighter
 {
