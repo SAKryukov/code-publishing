@@ -137,15 +137,15 @@ char ?
 comment +
 comment.html ?
 comment.single.php.alternative
-constant
-constant.hex-color
-constant.language
-constant.numeric
-constant.other
-entity.class
-entity.function
-entity.label
-function.call
+constant +
+constant.hex-color ?
+constant.language +
+constant.numeric +
+constant.other ?
+entity.class ?
+entity.function +
+entity.label ?
+function.call ?
 integer ?
 keyword +
 keyword.operator +
