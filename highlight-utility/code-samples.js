@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 const codeSampleMap = {
 
@@ -30,6 +30,22 @@ window.onload = () => {
 //...
 
 }; //window.onload
+
+`,
+
+////////////////////////////////////////////////
+
+css: `
+
+pre, summary:has(+ pre) { background-color: papayawhip; overflow-x: auto; padding-left: 10pt; padding-right: 10pt; font-family: monospace; }
+summary:has(+ pre) {
+    margin-bottom: 0; border-bottom: thin solid; border-bottom-color: burlywood;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+summary:has(+ pre) > span:last-child { font-size: 90%; }
 
 `,
 
@@ -355,7 +371,67 @@ namespace SA {
 
 }
 
+`,
+
+////////////////////////////////////////////////
+
+json: `
+
+{
+    "summary": {
+        "title": "Some interesting well-known people",
+        "description": "",
+        "created": "2021/11/07 05:47:08 UTC−5",
+        "updated": "2021/11/13 09:28:58 UTC−5"
+    },
+    "properties": [
+        "Name",
+        "Born",
+        "Birthplace",
+        "Died",
+        "Death Place",
+        "Nickname",
+        "Interests",
+        "Notable Work"
+    ],
+    "values": [
+        "Menes",
+        "3200–3000 BC",
+        "Egypt",
+        "Akhenaten",
+        "1336 or 1334 BC",
+        "Nebuchadnezzar I",
+        "1121 BC",
+        "1100 BC",
+        "Homer",
+    ],
+    "records": [
+        [
+            {
+                "property": 0,
+                "value": 0
+            },
+            {
+                "property": 1,
+                "value": 1
+            },
+            {
+                "property": 2,
+                "value": 2
+            },
+            {
+                "property": 3,
+                "value": 1
+            },
+            {
+                "property": 4,
+                "value": 2
+            }
+        ]
+    ]
+}
+
 `
 ////////////////////////////////////////////////
 
-}
+};
