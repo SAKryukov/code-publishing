@@ -17,6 +17,8 @@ have been rewritten using more modern JavaScript, and multiple problems have bee
 
 [Artilce demo](https://sakryukov.github.io/code-publishing/demo/index.html)
 
+[Color Names](https://sakryukov.github.io/color-names-js-wpf/code/js) (from the repository [SAKryukov/color-names-js-wpf](https://github.com/SAKryukov/color-names-js-wpf), usefule for styling)
+
 ### Credits:
 
 Original [Rainbow](https://github.com/ccampbell/rainbow) contributors:
