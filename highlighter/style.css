@@ -75,9 +75,13 @@ pre span.constant.numeric.highlighter {
 }
 
 pre span.string.highlighter,
-pre span.comment.docstring.highlighter
 {
     color: #D20;
+}
+
+pre span.comment.docstring.highlighter
+{
+    color: darkMagenta;
 }
 
 span.template.string.highlighter
