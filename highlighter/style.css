@@ -43,12 +43,13 @@ pre span.operator.highlighter
     color: magenta;
 }
 
-
-pre span.keyword.operator.highlighter{
+pre span.keyword.operator.highlighter
+{
     color: darkRed;
     font-weight: normal
 }
 
+pre span.property.highlighter,
 pre span.constant.language.highlighter
 {
     color: #038;
@@ -220,6 +221,7 @@ pre span.pascal.assignment.highlighter
 ? plain (direct scheme)
 + preprocessor (direct csharp)
 + preprocessor.keyword (direct c, cpp)
++ property (direct json)
 ? reset (direct coffeescript)
 ? selector (direct javascript)
 ? shell (direct shell)
