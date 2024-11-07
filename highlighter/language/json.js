@@ -14,7 +14,7 @@ RuleSet.extend('json', [
     },
     {
         name: 'property',
-        pattern: /\".*?"\s*?:/g
+        pattern: /".*?"\s*?:/g
     },
 
 ]);
