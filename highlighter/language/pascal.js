@@ -5,6 +5,18 @@
 */
 RuleSet.extend('pascal', [
     {
+        name: 'comment',
+        pattern: /\/\/.*?$/g
+    },
+    {
+        name: 'comment.block',
+        pattern: /(\(\*(.|[\r\n])*?\\*\))/gm
+    },
+    {
+        name: 'comment.block.pascal',
+        pattern: /(\{(.|[\r\n])*?\})/gm
+    },
+    {
         matches: {
             1: [
                 {
@@ -40,18 +52,6 @@ RuleSet.extend('pascal', [
     {
         name: 'pascal.assignment',
         pattern: /:=/g
-    },
-    {
-        name: 'comment',
-        pattern: /\/\/.*?$/g
-    },
-    {
-        name: 'comment.block',
-        pattern: /(\(\*(.|[\r\n])*?\\*\))/gm
-    },
-    {
-        name: 'comment.block.pascal',
-        pattern: /(\{(.|[\r\n])*?\})/gm
     },
     {
         name: 'keyword',

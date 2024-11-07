@@ -80,7 +80,7 @@ strict private
 public // helper to the server part (first-instance delegate of OnCommandLineFromSecondInstance)
    type TCommandLineArray = array of string;
    class function DeserializeCommandLine(commandLine: string): TCommandLineArray;
-end {TSingleInstanceUtility};
+end {class TSingleInstanceUtility};
 
 implementation
 uses Classes, CmdLinePlus;
@@ -101,7 +101,7 @@ end {TSingleInstanceServer};
 procedure TSingleInstanceServer.SetServerId;
 begin
    self.FServerID := GetServerID;
-end {TSingleInstanceServer.SetId};
+end {class TSingleInstanceServer.SetId};
 
 class function TSingleInstanceUtility.IsSecondInstance: boolean;
 var
