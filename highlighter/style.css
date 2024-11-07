@@ -40,13 +40,13 @@ pre span.preprocessor.keyword.highlighter
 
 pre span.operator.highlighter
 {
-    color: magenta;
+    color: darkMagenta;    
 }
 
 pre span.keyword.operator.highlighter
 {
     color: darkRed;
-    font-weight: normal
+    font-weight: normal;
 }
 
 pre span.property.highlighter,
@@ -77,7 +77,7 @@ pre span.constant.numeric.highlighter {
 
 pre span.string.highlighter
 {
-    color: #D20;
+    color: #AA3300;
 }
 
 pre span.comment.docstring.highlighter

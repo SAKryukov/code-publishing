@@ -5,16 +5,16 @@
  */
 RuleSet.extend('json', [
     {
-        name: 'string',
-        pattern: /".*?"/g
-    },
-    {
         name: 'operator',
         pattern: /[\[|\]|\{|}]/g
     },
     {
         name: 'property',
-        pattern: /".*?"\s*?:/g
+        pattern: /".*?"\s*?(?=:)/g
+    },
+    {
+        name: 'string',
+        pattern: /".*?"/g
     },
 
 ]);
