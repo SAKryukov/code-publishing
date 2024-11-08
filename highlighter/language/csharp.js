@@ -6,6 +6,14 @@
 */
 RuleSet.extend('csharp', [
     {
+        name: 'integer',
+        pattern: /\b(0x[\da-f]+|\d+)\b/g
+    },
+    {
+        name: 'comment',
+        pattern: /\/\*[\s\S]*?\*\/|(\/\/)[\s\S]*?$/gm
+    },
+    {
         // @see http://msdn.microsoft.com/en-us/library/23954zh5.aspx
         name: 'constant',
         pattern: /\b(false|null|true)\b/g
@@ -64,14 +72,6 @@ RuleSet.extend('csharp', [
     {
         name: 'string',
         pattern: /(")(.*?)\1/g
-    },
-    {
-        name: 'integer',
-        pattern: /\b(0x[\da-f]+|\d+)\b/g
-    },
-    {
-        name: 'comment',
-        pattern: /\/\*[\s\S]*?\*\/|(\/\/)[\s\S]*?$/gm
     },
     {
         name: 'operator',
