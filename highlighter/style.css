@@ -287,3 +287,25 @@ pre span.pascal.assignment.highlighter
 + variable.self (direct python)
 ? variable.type (indirect javascript)
 */
+
+/* Visual Studio:
+VS C#, JavaScript: 
+Types: steel blue
+Well-known types and reserved words: blue
+Comment: green
+String: darkRed
+Url in comments: darker blue
+preprocessor: gray
+---
+VS C++:
+Same
+keywords: magenta/violet
+---
+VS JSON:
+properties: blue
+string as above
+---
+VS Java:
+Same 
+Types and function names: steel blue
+*/
