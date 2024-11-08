@@ -8,7 +8,7 @@ This facility is being developed to compensate for the lack of this valuable res
 One of the goals of this development is to provide smooth operation with [Extensible Markdown](https://marketplace.visualstudio.com/items?itemName=sakryukov.extensible-markdown).
 Extensible Markdown offers a way to create publications using Markdown and export them in HTML, using advanced Markdown extensions. The most important predefined extension automatically creates and references TOC with optional flexible and configurable auto-numbering.
 
-The code highlighter is based on Craig Campbell's [Rainbow](https://github.com/ccampbell/rainbow). Most of the code is radically rewritten and greatly simplified. Node support was found defunct and is removed. Separate pieces of code
+The code highlighter is based on the study of Craig Campbell's [Rainbow](https://github.com/ccampbell/rainbow) and borrowing some essential parts of its code. Most of the code is radically rewritten and greatly simplified. Node support was found defunct and is removed. Separate pieces of code
 have been rewritten using more modern JavaScript, and multiple problems have been solved.
 
 ### Live Play
