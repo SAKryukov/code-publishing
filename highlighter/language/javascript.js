@@ -5,7 +5,6 @@
  * @author Sergey A Kryukov
  */
 RuleSet.extend('javascript', [
-
     /**
      * matches $. or $(
      */
@@ -77,9 +76,7 @@ RuleSet.extend('javascript', [
         pattern: /(\/)((?![*+?])(?:[^\r\n\[/\\]|\\.|\[(?:[^\r\n\]\\]|\\.)*\])+)(\/)(?!\/)([igm]{0,3})/g
     },
 
-    /**
-     * matches runtime function declarations
-     */
+    // matches runtime function declarations
     {
         matches: {
             1: 'storage.type',
@@ -88,9 +85,7 @@ RuleSet.extend('javascript', [
         pattern: /(var)?(\s|^)(\S+)(?=\s?=\s?function\()/g
     },
 
-    /**
-     * matches constructor call
-     */
+    // matches constructor call
     {
         matches: {
             1: 'keyword',
@@ -99,9 +94,7 @@ RuleSet.extend('javascript', [
         pattern: /(new)\s+(?!Promise)([^\(]*)(?=\()/g
     },
 
-    /**
-     * matches any function call in the style functionName: function()
-     */
+    // matches any function call in the style functionName: function()
     {
         name: 'entity.function',
         pattern: /(\w+)(?=:\s{0,}function)/g
@@ -116,6 +109,12 @@ RuleSet.extend('javascript', [
             2: 'constant.other'
         },
         pattern: /(export)\s+(\*)/g
+    },
+    {
+        matches: {
+            1: 'entity.name.function',
+        },
+        pattern: /(\S*?)\s*?\=\s*?\(.*?\)\s*?\=&gt;\s*?\{/g
     },
     {
         matches: {
@@ -150,4 +149,3 @@ RuleSet.extend('javascript', [
 ], 'generic');
 
 RuleSet.addAlias('js', 'javascript');
-
