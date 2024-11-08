@@ -51,18 +51,6 @@ RuleSet.extend('javascript', [
         },
         pattern: /\.(length|node(Name|Value))\b/g
     },
-    {
-        matches: {
-            1: 'support.function'
-        },
-        pattern: /(setTimeout|setInterval)(?=\()/g
-    },
-    {
-        matches: {
-            1: 'support.method'
-        },
-        pattern: /\.(getAttribute|replace|push|getElementById|getElementsByClassName|setTimeout|setInterval)(?=\()/g
-    },
 
     /**
      * matches any escaped characters inside of a js regex pattern

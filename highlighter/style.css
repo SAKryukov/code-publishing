@@ -135,8 +135,7 @@ pre span.support.function.highlighter {
 }
 
 pre span.entity.function.highlighter,
-pre span.support.magic.highlighter,
-pre span.support.method.highlighter
+pre span.support.magic.highlighter
 {
     color: #C00;
     font-weight: bold
@@ -260,10 +259,9 @@ pre span.pascal.assignment.highlighter
 ? support.css-value (indirect css)
 ? support.exception.type (indirect python)
 + support.function (direct r)
-+ support.function (indirect javascript, lua, php)
++ support.function (indirect lua, php)
 ? support.function.python (direct python)
 + support.magic (direct+indirect python)
-+ support.method (indirect javascript)
 ? support.namespace (indirect haskell, java)
 ? support.object (direct python)
 ? support.operator (indirect html)
