@@ -287,23 +287,45 @@ pre span.pascal.assignment.highlighter
 */
 
 /* Visual Studio:
-VS C#, JavaScript: 
-Types: steel blue
-Well-known types and reserved words: blue
-Comment: green
-String: darkRed
+VS C#, JavaScript: )
+Types: steel blue rgb(43, 145, 175)
+Well-known types and reserved words: blue 0x0000FF
+Comment: green 0x00FF00
+String: darkRed, rgb(163, 21, 21)
 Url in comments: darker blue
 preprocessor: gray
 ---
 VS C++:
 Same
-keywords: magenta/violet
+keywords: magenta/violet rgb(143, 8, 196)
+Macros: rgb(138, 27, 255)
+Operator functions: 0x00FFFF
 ---
 VS JSON:
-properties: blue
+properties: blue rgb(46, 117, 182)
 string as above
 ---
 VS Java:
 Same 
 Types and function names: steel blue
+---
+VS CSS: comment: rgb(0, 100, 0)
+CSS: keyword: 0xFF00FF
+CSS: property: red
+CSS: value: blue
+CSS: selector: rgb(128, 0, 0)
+CSS: string: blue
+---
+VS HTML:
+comment: rgb(0, 100, 0)
+element name: rgb(128, 0, 0)
+entity: red
+operator: blue
+tag delimiter: blue
+---
+VS General:
+User types: rgb(43, 145, 175)
+String: darkRed, rgb(163, 21, 21)
+
+
 */
