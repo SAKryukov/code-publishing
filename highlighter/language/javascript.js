@@ -114,7 +114,7 @@ RuleSet.extend('javascript', [
         matches: {
             1: 'entity.name.function',
         },
-        pattern: /(\S*?)\s*?\=\s*?\(.*?\)\s*?\=&gt;\s*?\{/g
+        pattern: /(\S*?)\s*?\=\s*?(\(.*?\)|(\S+?))\s*?\=&gt;/g
     },
     {
         matches: {
