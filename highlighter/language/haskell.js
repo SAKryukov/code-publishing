@@ -93,4 +93,4 @@ RuleSet.extend('haskell', [
 		},
 		pattern: /^\#([\S\s]*?)$/gm
 	}
-], 'generic');
+], ["generic"]);

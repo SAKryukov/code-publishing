@@ -3,6 +3,7 @@
  *
  * @author Javier Aguirre
  * @author Craig Campbell
+ * @author Sergey A Kryukov
  */
 RuleSet.extend('go', [
     {
@@ -73,4 +74,4 @@ RuleSet.extend('go', [
         },
         pattern: /(func)\s+(.*?)(?=\()/g
     }
-], 'generic');
+], ["generic"]);

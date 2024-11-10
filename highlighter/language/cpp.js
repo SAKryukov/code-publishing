@@ -12,4 +12,4 @@ RuleSet.extend('cpp', [
         name: 'preprocessor.keyword',
         pattern: /#(if|elif|else|endif|ifdef|ifndef|elifdef|elifndef|define|undef|include|line|error|warning|pragma|defined|__has_include|__has_cpp_attribute|export|import|module)\b/g
     },
-], "c");
+], ["c"]);

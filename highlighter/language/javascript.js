@@ -146,6 +146,6 @@ RuleSet.extend('javascript', [
         name: 'support.class.promise',
         pattern: /\bPromise(?=(\(|\.))/g
     }
-], 'generic');
+], ["generic"]);
 
 RuleSet.addAlias('js', 'javascript');

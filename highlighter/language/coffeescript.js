@@ -126,6 +126,6 @@ RuleSet.extend('coffeescript', [
         },
         pattern: /\b(new)\s(.*?)(?=\s)/g
     }
-], 'generic');
+], ["generic"]);
 
 RuleSet.addAlias('coffee', 'coffeescript');

@@ -8,10 +8,10 @@
 */
 
 const RuleSet = {
-    inheritenceMap: {},
+    inheritanceMap: {},
     patterns: {},
     aliases: {},
-    extend: function (language, languagePatterns, inherits) {
+    extend: function (language, languagePatterns, baseLanguages) {
         // If we extend a language again we shouldn't need to specify the
         // inheritence for it. For example, if you are adding special highlighting
         // for a javascript function that is not in the base javascript rules, you
@@ -20,22 +20,28 @@ const RuleSet = {
         // RuleSet.extend('javascript', [ ... ]);
         //
         // Without specifying a language it should inherit (generic in this case)
-        if (!this.inheritenceMap[language])
-            this.inheritenceMap[language] = inherits;
+        if (!this.inheritanceMap[language])
+            this.inheritanceMap[language] = baseLanguages;
         this.patterns[language] = languagePatterns.concat(this.patterns[language] || []);
     }, //RuleSet.extend
     addAlias: function (alias, originalLanguage) { // to take into account
         this.aliases[alias] = originalLanguage;
     }, //RuleSet.addAlias
-    getPatternsForLanguage: function (language) {
+    getPatternsForLanguage: function(language) {
         if (this.patterns[language] == null)
             language = this.aliases[language];
         let patterns = this.patterns[language] || [];
-        let inheritedLanguage = language;
-        while (this.inheritenceMap[inheritedLanguage]) {
-            inheritedLanguage = this.inheritenceMap[inheritedLanguage];
-            patterns = this.patterns[language].concat(this.patterns[inheritedLanguage] || []);
-        } //loop
+        const addInheritedPatterns = (ruleSet, patternSet, currentLanguage) => {
+            const baseLanguageList = ruleSet.inheritanceMap[currentLanguage];
+            if (baseLanguageList == null) return patternSet;
+            if (baseLanguageList.constructor != Array) return patternSet;
+            for (let currentBaseLanguage of baseLanguageList) {
+                patternSet = patternSet.concat(ruleSet.patterns[currentBaseLanguage] || []);
+                addInheritedPatterns(ruleSet, patternSet, currentBaseLanguage);
+            } //loop
+            return patternSet;
+        } //addInheritedPatterns
+        patterns = addInheritedPatterns(this, patterns, language);
         return patterns;
     } //RuleSet.getPatternsForLanguage
 }; //RuleSet

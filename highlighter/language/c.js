@@ -72,4 +72,4 @@ RuleSet.extend('c', [
         name: 'support.type',
         pattern: /\b(struct|union|enum)\b/g
     },
-], 'generic');
+], ["generic"]);

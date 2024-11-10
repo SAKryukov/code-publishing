@@ -131,4 +131,4 @@ RuleSet.extend('php', [
         },
         pattern: /(\(|,\s?)([\w\\]*?)(?=\s\$)/g
     }
-], 'generic');
+], ["generic"]);
