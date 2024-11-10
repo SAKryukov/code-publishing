@@ -2,7 +2,6 @@
 * D patterns
 *
 * @author Matthew Brennan Jones
-* @version 1.0.1
 */
 RuleSet.extend('d', [
     {

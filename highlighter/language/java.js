@@ -2,7 +2,6 @@
 * Java patterns
 *
 * @author Leo Accend
-* @version 1.0.0
 */
 RuleSet.extend( "java", [
   {
