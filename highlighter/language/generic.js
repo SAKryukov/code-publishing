@@ -7,17 +7,7 @@
 RuleSet.extend('generic', [
     {
         matches: {
-            1: [
-                {
-                    name: 'keyword.operator',
-                    pattern: /\=|\+/g
-                },
-                {
-                    name: 'keyword.dot',
-                    pattern: /\./g
-                }
-            ],
-            2: {
+            1: {
                 name: 'string',
                 matches: {
                     name: 'constant.character.escape',
@@ -25,7 +15,7 @@ RuleSet.extend('generic', [
                 }
             }
         },
-        pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|"|`)([^\\\1]|\\.)*?(\3))/gm
+        pattern: /((('|"|`)([^\\\1]|\\.)*?(\3)))/gm
     },
     {
         name: 'comment',
