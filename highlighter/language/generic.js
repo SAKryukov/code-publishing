@@ -21,11 +21,11 @@ RuleSet.extend('generic', [
                 name: 'string',
                 matches: {
                     name: 'constant.character.escape',
-                    pattern: /\\('|"){1}/g
+                    pattern: /\\('|"|`){1}/g
                 }
             }
         },
-        pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|")([^\\\1]|\\.)*?(\3))/gm
+        pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|"|`)([^\\\1]|\\.)*?(\3))/gm
     },
     {
         name: 'comment',
