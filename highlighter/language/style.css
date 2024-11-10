@@ -75,7 +75,8 @@ pre span.constant.numeric.highlighter {
     font-weight: bold
 }
 
-pre span.string.highlighter
+pre span.string.highlighter,
+pre span.string.character.escape.highlighter
 {
     color: #AA3300;
 }
@@ -83,12 +84,6 @@ pre span.string.highlighter
 pre span.comment.docstring.highlighter
 {
     color: darkMagenta;
-}
-
-span.template.string.highlighter
-{
-    color: orange;
-    font-style: italic;
 }
 
 pre span.string.regexp.highlighter {
@@ -272,7 +267,6 @@ pre span.pascal.assignment.highlighter
 ? support.type (direct c)
 ? support.value (indirect html)
 ? support.vendor-prefix (indirect css)
-+ template.string (direct javascript)
 + variable (indirect php, scheme)
 ? variable.class (direct ruby)
 ? variable.dollar-sign (indirect php)

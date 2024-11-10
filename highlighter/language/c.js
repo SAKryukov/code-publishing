@@ -8,9 +8,8 @@
 RuleSet.extend('c', [
     {
         name: 'preprocessor.keyword',
-        pattern: /#(define|elif|else|endif   |error|if|ifdef|ifndef |import|include|line   |pragma|undef|using)\b/g
+        pattern: /#(define|elif|else|endif|error|if|ifdef|ifndef|import|include|line|pragma|undef|using)\b/g
     },
-    /*
     {
         name: 'meta.preprocessor',
         matches: {
@@ -41,14 +40,9 @@ RuleSet.extend('c', [
         },
         pattern: /\#([\S\s]*?)$/gm
     },
-    */
     {
         name: 'keyword',
         pattern: /\b(do|goto|typedef)\b/g
-    },
-    {
-        name: 'entity.label',
-        pattern: /\w+:/g
     },
     {
         matches: {
@@ -72,4 +66,4 @@ RuleSet.extend('c', [
         name: 'support.type',
         pattern: /\b(struct|union|enum)\b/g
     },
-], ["generic"]);
+], ["base.comment-block-c", "base.comment-c", "base.string-c"]);

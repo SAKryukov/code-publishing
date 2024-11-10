@@ -1,15 +1,23 @@
 /**
  * Javascript patterns
  *
- * @author Craig Campbell
  * @author Sergey A Kryukov
  */
-RuleSet.extend('javascript', [
-    /**
-     * matches $. or $(
-     */
+RuleSet.extend("javascript", [
     {
-        name: 'magic.strict',
+        matches: {
+            1: {
+                name: "string",
+                matches: {
+                    name: "string.character.escape",
+                    pattern: /\\('|"|`){1}/g
+                }
+            }
+        },
+        pattern: /((('|"|`)([^\\\1]|\\.)*?(\3)))/gm
+    },
+    {
+        name: "magic.strict",
         pattern: /^\s*\"use strict\";\s*$/gm
     },
     {
@@ -19,10 +27,6 @@ RuleSet.extend('javascript', [
     {
         name: 'support',
         pattern: /\b(window|document)\b/g
-    },
-    {
-        name: 'template.string',
-        pattern: /(`(.|[\r\n])*?`)/gm
     },
     {
         name: 'keyword',
