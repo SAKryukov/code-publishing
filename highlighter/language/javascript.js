@@ -24,32 +24,20 @@ RuleSet.extend("javascript", [
         name: 'keyword',
         pattern: /\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|false|finally|for|function|if|import|in|instanceof|new|null|return|super|switch|this|throw|true|try|typeof|var|void|while|with|let|static|yield|await|enum|implements|interface|package|private|protected|public)\b/g
     },
-    // matches runtime function declarations
-    {
-        matches: {
-            1: 'storage.type',
-            3: 'entity.function'
-        },
-        pattern: /(var)?(\s|^)(\S+)(?=\s?=\s?function\()/g
-    },
-    // matches constructor call
+    // matches constructor call:
     {
         matches: {
             1: 'keyword',
             2: 'variable.type'
         },
-        pattern: /(new)\s+(?!Promise)([^\(]*)(?=\()/g
+        pattern: /(new)\s+([^\(]*)(?=\()/g
     },
-    // matches any function call in the style functionName: function()
-    {
-        name: 'entity.function',
-        pattern: /(\w+)(?=:\s{0,}function)/g
-    },
+    // matches arrow function declaration:
     {
         matches: {
             1: 'entity.name.function',
         },
-        pattern: /(\S*?)\s*?\=\s*?(\(.*?\)|(\S+?))\s*?\=&gt;/g
+        pattern: /(\S*?)\s*?(\=|\:)\s*?(\(.*?\)|(\S+?))\s*?\=&gt;/g
     },
 ], [
     "base.comment-block-c",
