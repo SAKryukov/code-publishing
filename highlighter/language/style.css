@@ -9,7 +9,7 @@ pre span.comment.block.highlighter,
 pre span.comment.single.php.alternative.highlighter,
 pre span.comment.html.highlighter
 {
-    color: #888
+    color: green;
 }
 pre span.comment.block.pascal.highlighter
 {
@@ -22,14 +22,28 @@ pre span.storage.module.highlighter,
 pre span.storage.class.highlighter,
 pre span.storage.function.highlighter
 {
-    color: #080;
+    color: blue;
     font-weight: bold
 }
+
+pre span.keyword.type.highlighter
+{
+    color: darkviolet;
+}
+
+pre span.keyword.constant.value.highlighter,
+pre span.constant.value.numeric.highlighter,
+pre span.constant.value.character.highlighter
+{
+    font-weight: normal;
+    color: darkRed;
+}
+
+/* ???????????????????????????????????????????????????? */
 
 pre span.entity.label.highlighter
 {
     background-color: red;
-    color: yellow;
 }
 
 pre span.preprocessor.keyword.highlighter
@@ -57,8 +71,8 @@ pre span.constant.language.highlighter
 }
 
 pre span.constant.symbol.highlighter,
-pre span.class.highlighter,
-pre span.constant.highlighter {
+pre span.class.highlighter
+{
     color: #036;
     font-weight: bold
 }
@@ -67,11 +81,6 @@ pre span.keyword.namespace.highlighter,
 pre span.entity.name.class.highlighter
 {
     color: #B06;
-    font-weight: bold
-}
-
-pre span.constant.numeric.highlighter {
-    color: #00D;
     font-weight: bold
 }
 
@@ -203,6 +212,7 @@ pre span.pascal.assignment.highlighter
 ? keyword.special-method (indirect ruby)
 ? keyword.static (direct csharp, d, php)
 ? keyword.static (indirect php)
++ keyword.type (???)
 ? keyword.unit (indirect css)
 ? keyword.unit (indirect css)
 ? keyword.variable.coffee (direct coffeescript)
