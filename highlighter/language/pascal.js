@@ -10,6 +10,24 @@ RuleSet.extend('pascal', [
     },
     {
         matches: {
+            1: {
+                name: "string",
+                matches:
+                [{
+                    name: "string.character.escape",
+                    pattern: /""{1}/g
+                },
+                {
+                    name: "string.character.escape",
+                    pattern: /''{1}/g
+                }],
+            }
+        },
+        pattern: /((("|')([^\\\1]|\\.)*?(\3)))/gm
+    },
+    /*
+    {
+        matches: {
             1: [
                 {
                     name: 'keyword.operator',
@@ -36,7 +54,7 @@ RuleSet.extend('pascal', [
             }
         },
         pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|")([^\\\1]|\\.)*?(\3))/gm
-    },
+    },*/
     {
         name: 'keyword.operator',
         pattern: /\+|\!|\-|&(gt|lt|amp);|\||\*|\=/g
