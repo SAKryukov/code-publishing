@@ -5,10 +5,6 @@
 */
 RuleSet.extend('pascal', [
     {
-        name: 'comment.block',
-        pattern: /(\(\*(.|[\r\n])*?\\*\))/gm
-    },
-    {
         name: 'comment.block.pascal',
         pattern: /(\{(.|[\r\n])*?\})/gm
     },
@@ -52,5 +48,10 @@ RuleSet.extend('pascal', [
     {
         name: 'keyword',
         pattern: /\b(absolute|and|array|asm|begin|case|const|constructor|destructor|div|do|downto|else|end|file|for|function|goto|if|implementation|in|inherited|inline|interface|label|mod|nil|not|object|of|operator|or|packed|procedure|program|record|reintroduce|repeat|self|set|shl|shr|string|then|to|type|unit|until|uses|var|while|with|xor|as|class|dispinterface|except|exports|finalization|finally|initialization|inline|is|library|on|out|packed|property|raise|resourcestring|threadvar|try)(?=\b)/gi
-    }
-], ['base.comment.c']);
+    },
+    {
+        name: "comment",
+        pattern: /\/\/.*?$/gm
+    }, 
+
+], ['base.comment-c']);
