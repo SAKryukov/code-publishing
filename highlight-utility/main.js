@@ -11,9 +11,13 @@ window.onload = () => {
     /* 
     // method to collect all pattern names from all languages:
     const _researchHandler = () => {
+        const nameSet = new Set();
         const nameList = [];
-        const reportPattern = (name, language, indirect) => 
+        const reportPattern = (name, language, indirect) => {
+            if (nameSet.has(name)) return;
             nameList.push(`${name} (${indirect? "indirect": "direct"} ${language})`);
+            nameSet.add(name);
+        } //reportPattern
         const collectPattern = (language, pattern, indirect) => {
             if (pattern.name != null)
                 reportPattern(pattern.name, language, indirect);
@@ -53,6 +57,7 @@ window.onload = () => {
     const copyHandler = () => navigator.clipboard.writeText(output.value);
     
     convert.onclick = () => convertHandler();
+    //convert.onclick = () => _researchHandler();
     copy.onclick = () => copyHandler();
     window.onkeydown = event => {
         if (event.code == "F2") {
