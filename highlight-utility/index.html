@@ -25,13 +25,16 @@
         @import url(../highlighter/language/style.css);
         * { font-family: sans-serif; }
         textarea { width: 100%; height: 20em; }
+        label { width: 100%; display: flex; flex-direction: row; align-items: center; justify-content:space-between; }
+        input { width: 100%; }
+        label > span { white-space: nowrap; margin-right: 0.4em; }
         textarea:last-of-type { height: 10em; }
     </style>
 </head>
 <html lang="en-US">
 <body>
     <select>                
-        <option selected="true" value="javascript">JavaScript</option>
+        <option selected="true" value="javascript">JavaScript</options>
         <option value="csharp">C#</option>
         <option value="cpp">C++</option>
         <option value="c">C</option>
@@ -45,6 +48,7 @@
     <br/>
     <textarea id="input" spellcheck="false">
     </textarea>
+    <label><span>Custom words:</span><input type="text"></input></label>
     <br />
     <button id="convert">F2: Convert</button> <button id="copy">Ctrl+C or Ctrl+Insert: Copy</button>
     <br />

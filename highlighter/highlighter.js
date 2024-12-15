@@ -384,8 +384,18 @@ const Highlighter = function Highlighter(options) {
         return processReplacements(code);
     }; //processCodeWithPatterns
 
-    this.colorize = (code, language, patterns) => {
+    const createCustonPattern = words => {
+        if (words == null) return null;
+        if (words.trim().length < 1) return null;
+        const list = words.split(" ").join("|");
+        return { name: "_custom-word_", pattern: new RegExp(`\\b(${list})\\b`, "g") };
+    }; //createCustonPattern
+
+    this.colorize = (code, language, patterns, customWords) => {
         const patternList = patterns || RuleSet.getPatternsForLanguage(language);
+        const customPattern = createCustonPattern(customWords);
+        if (customPattern)
+            patternList.push(customPattern);
         // important fix: clean-up:
         replacements = {};
         replacementPositions = {};

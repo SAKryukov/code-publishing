@@ -23,7 +23,11 @@ pre span.storage.class.highlighter,
 pre span.storage.function.highlighter
 {
     color: blue;
-    font-weight: bold
+    font-weight: normal;
+}
+
+pre span._custom-word_.highlighter {
+    color: slateBlue;
 }
 
 pre span.keyword.type.highlighter

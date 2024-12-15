@@ -7,6 +7,7 @@ window.onload = () => {
     const convert = document.getElementById("convert");
     const copy = document.getElementById("copy");
     const demo = document.querySelector("pre");
+    const customWords = document.querySelector("label > input");
 
     /* 
     // method to collect all pattern names from all languages:
@@ -50,7 +51,7 @@ window.onload = () => {
     const highlighter = new Highlighter({ globalClass: "highlighter" });
     const convertHandler = () => {
         const source = input.value;
-        const result = highlighter.colorize(source, inputLanguage.value);
+        const result = highlighter.colorize(source, inputLanguage.value, null, customWords.value);
         output.value = result;
         demo.innerHTML = result;
     }; //convertHandler
