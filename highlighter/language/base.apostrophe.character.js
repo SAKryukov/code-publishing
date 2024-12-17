@@ -7,7 +7,7 @@ RuleSet.extend("base.apostrophe.character", [
             1: {
                 name: "constant.value.character",
                 matches: {
-                    name: "string.character.escape",
+                    name: namingScheme.literal.escape,
                     pattern: /\\'{1}/g
                 }
             }

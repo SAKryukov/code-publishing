@@ -3,7 +3,7 @@
 */
 RuleSet.extend("base.comment-c", [
     { 
-        name: "comment",
+        name: namingScheme.comment.text,
         pattern: /\/\/(.*?)$/gm
     }
 ]);

@@ -12,27 +12,33 @@ window.onload = () => {
     /* 
     // method to collect all pattern names from all languages:
     const _researchHandler = () => {
-        const nameSet = new Set();
-        const nameList = [];
+        const nameMap = new Map();
         const reportPattern = (name, language) => {
-            if (nameSet.has(name)) return;
-            nameList.push(`${name} (${language})`);
-            nameSet.add(name);
+            if (nameMap.has(name))
+                nameMap.get(name).push(language);
+            else
+                nameMap.set(name, [language]);
         } //reportPattern
         const collectPattern = (language, pattern) => {
             if (pattern == null) return;
-            if (pattern.name != null) {
+            if (pattern.name != null)
                 reportPattern(pattern.name, language);
-            } //if
             for (let index in pattern)
-                if ((pattern[index] != null) && (pattern[index].constructor == Object))
-                    collectPattern(language, pattern[index]);
+                if (pattern[index] != null) {
+                    if ((Number(index) != NaN) && pattern[index].constructor == String)
+                        reportPattern(pattern[index], language);
+                    else if (pattern[index].constructor == Object)
+                        collectPattern(language, pattern[index]);
+                } //if
         }; //collectPattern
         for (let language in RuleSet.patterns) {
             const patternSet = RuleSet.patterns[language];
             for (let pattern of patternSet)
                 collectPattern(language, pattern);
         } //loop
+        const nameList = [];
+        for (const [name, value] of nameMap)
+            nameList.push(`${name} (${value.join(", ")})`);
         output.value = nameList.join("\n"); 
     }; //_researchHandler
     */
@@ -61,7 +67,7 @@ window.onload = () => {
             convertHandler();
             event.preventDefault();
         } else if (input.selectionStart == input.selectionEnd && event.ctrlKey) {
-            if (event.code == "KeyC" || event.code == "Insert") {
+            if (event.code == "Insert") {
                 copyHandler();
                 event.preventDefault();    
             }

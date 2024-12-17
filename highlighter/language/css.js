@@ -5,22 +5,18 @@
  */
 RuleSet.extend('css', [
     {
-        name: 'comment',
+        name: namingScheme.comment.text,
         pattern: /\/\*[\s\S]*?\*\//gm
-    },
-    {
-        name: 'constant.hex-color',
-        pattern: /#([a-f0-9]{3}|[a-f0-9]{6})(?=;|\s|,|\))/gi
     },
     {
         matches: {
             1: 'constant.numeric',
-            2: 'keyword.unit'
+            2: namingScheme.unit
         },
         pattern: /(\d+)(px|em|cm|s|%)?/g
     },
     {
-        name: 'string',
+        name: namingScheme.literal.string,
         pattern: /('|")(.*?)\1/g
     },
     {

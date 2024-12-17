@@ -5,15 +5,15 @@
  */
 RuleSet.extend('json', [
     {
-        name: 'operator',
+        name: namingScheme.operator,
         pattern: /[\[|\]|\{|}]/g
     },
     {
-        name: 'property',
+        name: namingScheme.property,
         pattern: /".*?"\s*?(?=:)/g
     },
     {
-        name: 'string',
+        name: namingScheme.literal.string,
         pattern: /".*?"/g
     },
 

@@ -5,24 +5,20 @@
 */
 RuleSet.extend( "java", [
   {
-    name: "constant",
+    name: namingScheme.literal.keyword,
     pattern: /\b(false|null|true|[A-Z_]+)\b/g
   },
   {
     matches: {
-      1: "keyword",
+      1: namingScheme.keyword,
       2: "support.namespace"
     },
     pattern: /(import|package)\s(.+)/g
   },
   {
     // see http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
-    name: "keyword",
+    name: namingScheme.keyword,
     pattern: /\b(abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|native|new|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|transient|try|void|volatile|while)\b/g
-  },
-  {
-    name: "string",
-    pattern: /(".*?")/g
   },
   {
     name: "char",
@@ -31,10 +27,6 @@ RuleSet.extend( "java", [
   {
     name: "integer",
     pattern: /\b(0x[\da-f]+|\d+)L?\b/g
-  },
-  {
-    name: "comment",
-    pattern: /\/\*[\s\S]*?\*\/|(\/\/).*?$/gm
   },
   {
     name: "support.annotation",
@@ -55,4 +47,4 @@ RuleSet.extend( "java", [
     name: "operator",
     pattern: /(\+{1,2}|-{1,2}|~|!|\*|\/|%|(?:&lt;){1,2}|(?:&gt;){1,3}|instanceof|(?:&amp;){1,2}|\^|\|{1,2}|\?|:|(?:=|!|\+|-|\*|\/|%|\^|\||(?:&lt;){1,2}|(?:&gt;){1,3})?=)/g
   }
-]);
+], ["base.string-c", "base.comment-block-c", "base.comment-c"]);

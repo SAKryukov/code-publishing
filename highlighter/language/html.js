@@ -5,7 +5,7 @@
  */
 RuleSet.extend('html', [
     {
-        name: 'source.php.embedded',
+        name: namingScheme.source.php,
         matches: {
             1: 'variable.language.php-tag',
             2: {
@@ -16,7 +16,7 @@ RuleSet.extend('html', [
         pattern: /(&lt;\?php|&lt;\?=?(?!xml))([\s\S]*?)(\?&gt;)/gm
     },
     {
-        name: 'source.css.embedded',
+        name: namingScheme.source.css,
         matches: {
             1: {
                 matches: {
@@ -49,7 +49,7 @@ RuleSet.extend('html', [
         pattern: /(&lt;style.*?&gt;)([\s\S]*?)(&lt;\/)(style)(&gt;)/gm
     },
     {
-        name: 'source.js.embedded',
+        name: namingScheme.source.js,
         matches: {
             1: {
                 matches: {
@@ -83,7 +83,7 @@ RuleSet.extend('html', [
         pattern: /(&lt;script(?! src).*?&gt;)([\s\S]*?)(&lt;\/)(script)(&gt;)/gm
     },
     {
-        name: 'comment.html',
+        name: namingScheme.comment.block,
         pattern: /&lt;\!--[\S\s]*?--&gt;/g
     },
     {
@@ -111,9 +111,9 @@ RuleSet.extend('html', [
     {
         matches: {
             1: 'support.operator',
-            2: 'string.quote',
-            3: 'string.value',
-            4: 'string.quote'
+            2: namingScheme.literal.quote,
+            3: namingScheme.literal.string,
+            4: namingScheme.literal.quote
         },
         pattern: /(=)('|")(.*?)(\2)/g
     },

@@ -11,14 +11,14 @@ RuleSet.extend('pascal', [
     {
         matches: {
             1: {
-                name: "string",
+                name: namingScheme.literal.string,
                 matches:
                 [{
-                    name: "string.character.escape",
+                    name: namingScheme.literal.escape,
                     pattern: /""{1}/g
                 },
                 {
-                    name: "string.character.escape",
+                    name: namingScheme.literal.escape,
                     pattern: /''{1}/g
                 }],
             }
@@ -30,7 +30,7 @@ RuleSet.extend('pascal', [
         matches: {
             1: [
                 {
-                    name: 'keyword.operator',
+                    name: namingScheme.operator,
                     pattern: /\=|\+/g
                 },
                 {
@@ -56,7 +56,7 @@ RuleSet.extend('pascal', [
         pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|")([^\\\1]|\\.)*?(\3))/gm
     },*/
     {
-        name: 'keyword.operator',
+        name: namingScheme.operator,
         pattern: /\+|\!|\-|&(gt|lt|amp);|\||\*|\=/g
     },
     {
@@ -64,11 +64,11 @@ RuleSet.extend('pascal', [
         pattern: /:=/g
     },
     {
-        name: 'keyword',
+        name: namingScheme.keyword,
         pattern: /\b(absolute|and|array|asm|begin|case|const|constructor|destructor|div|do|downto|else|end|file|for|function|goto|if|implementation|in|inherited|inline|interface|label|mod|nil|not|object|of|operator|or|packed|procedure|program|record|reintroduce|repeat|self|set|shl|shr|string|then|to|type|unit|until|uses|var|while|with|xor|as|class|dispinterface|except|exports|finalization|finally|initialization|inline|is|library|on|out|packed|property|raise|resourcestring|threadvar|try)(?=\b)/gi
     },
     {
-        name: "comment",
+        name: namingScheme.comment.text,
         pattern: /\/\/.*?$/gm
     }, 
 

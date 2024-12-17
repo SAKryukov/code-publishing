@@ -41,8 +41,8 @@ RuleSet.extend('c', [
         pattern: /\#([\S\s]*?)$/gm
     },
     {
-        name: 'keyword',
-        pattern: /\b(do|goto|typedef)\b/g
+        name: namingScheme.keyword,
+        pattern: /\b(do|goto|typedef|struct|union|enum)\b/g
     },
     {
         matches: {
@@ -61,9 +61,5 @@ RuleSet.extend('c', [
     {
         name: 'storage.modifier',
         pattern: /\b(static|extern|auto|register|volatile|inline)\b/g
-    },
-    {
-        name: 'support.type',
-        pattern: /\b(struct|union|enum)\b/g
     },
 ], ["base.comment-block-c", "base.comment-c", "base.string-c"]);

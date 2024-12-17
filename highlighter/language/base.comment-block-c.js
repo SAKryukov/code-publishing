@@ -3,7 +3,7 @@
 */
 RuleSet.extend("base.comment-block-c", [
     { 
-        name: 'comment.block',
+        name: namingScheme.comment.block,
         pattern: /\/\*(([\r\n]|.)*?)\*\//gm
     }
 

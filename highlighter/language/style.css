@@ -4,9 +4,9 @@ pre span.magic.strict.highlighter
     font-weight: bold;
 }
 
-pre span.comment.highlighter,
+pre span.comment.text.highlighter,
 pre span.comment.block.highlighter,
-pre span.comment.single.php.alternative.highlighter,
+pre span.comment.single.php.alternative.highlighter, /* ??? */
 pre span.comment.html.highlighter
 {
     color: green;
@@ -30,14 +30,15 @@ pre span._custom-word_.highlighter {
     color: slateBlue;
 }
 
-pre span.type.keyword.highlighter
+pre span.literal.keyword.highlighter
 {
     color: darkviolet;
 }
 
-pre span.constant.keyword.highlighter,
+pre span.literal.keyword.highlighter,
 pre span.constant.value.numeric.highlighter,
-pre span.constant.value.character.highlighter
+pre span.constant.value.character.highlighter,
+pre span.unit.highlighter
 {
     font-weight: normal;
     color: darkRed;
@@ -55,16 +56,15 @@ pre span.preprocessor.keyword.highlighter
     color: steelBlue;
     font-weight: bold
 }
+pre span.preprocessor.value.highlighter
+{
+    color: sandybrown;
+    font-weight: bold
+}
 
 pre span.operator.highlighter
 {
     color: darkMagenta;    
-}
-
-pre span.keyword.operator.highlighter
-{
-    color: darkRed;
-    font-weight: normal;
 }
 
 pre span.property.highlighter,
@@ -88,19 +88,19 @@ pre span.entity.name.class.highlighter
     font-weight: bold
 }
 
-pre span.string.value.highlighter,
-pre span.string.quote.highlighter,
-pre span.string.character.escape.highlighter
+pre span.literal.string.highlighter,
+pre span.literal.quote.highlighter,
+pre span.literal.escape.highlighter
 {
     color: #AA3300;
 }
 
-pre span.comment.docstring.highlighter
+pre span.comment.docstring.highlighter /* python */
 {
     color: darkMagenta;
 }
 
-pre span.string.regexp.highlighter {
+pre span.string.regexp.highlighter { /* ??? */
     background-color: #FFF0FF;
     color: #808
 }
@@ -206,36 +206,57 @@ String: darkRed, rgb(163, 21, 21)
 */
 
 /* reduced language set:
-string.value (base.string-c)
-string.character.escape (base.string-c)
-constant.value.character (base.apostrophe.character)
-comment (base.comment-c)
-comment.block (base.comment-block-c)
-constant.value.numeric (base.numeric)
-preprocessor.keyword (c)
-meta.preprocessor (c)
-keyword (c)
-storage.modifier (c)
-support.type (c)
-type.keyword (csharp)
-constant.keyword (csharp)
-constant.hex-color (css)
-string (css)
-support.css-property (css)
-source.php.embedded (html)
-source.css.embedded (html)
-source.js.embedded (html)
-comment.html (html)
-support.tag (html)
-constant (java)
-char (java)
-integer (java)
-support.annotation (java)
-entity.class (java)
-operator (java)
-magic.strict (javascript)
-property (json)
-comment.block.pascal (pascal)
-keyword.operator (pascal)
-pascal.assignment (pascal)
+// +: used in styles, ?: unused
++ literal.string (base.string-c, base.string-c, base.apostrophe-string, base.apostrophe-string, css, css, html, javascript, javascript, json, json, pascal, pascal)
++ literal.escape (base.string-c, base.string-c, base.apostrophe.character, base.apostrophe.character, base.apostrophe-string, base.apostrophe-string, javascript, javascript)
++ constant.value.character (base.apostrophe.character, base.apostrophe.character)
++ comment.text (base.comment-c, base.comment-c, base.comment-number-sign, base.comment-number-sign, css, css, java, java, pascal, pascal)
++ comment.block (base.comment-block-c, base.comment-block-c, html, html)
++ constant.value.numeric (base.numeric, base.numeric)
++ preprocessor.keyword (c, c, cpp, cpp)
++ meta.preprocessor (c, c)
++ keyword (c, c, cpp, cpp, csharp, csharp, java, java, java, javascript, javascript, javascript, pascal, pascal)
++ storage.type (c, c)
++ entity.name.function (c, c, javascript)
+? storage.modifier (c, c)
++ literal.keyword (csharp, csharp, javascript, java)
++ type.keyword (csharp, csharp, javascript, java)
+? constant.numeric (css)
++ unit (css)
+? support.css-property (css, css)
+? support.vendor-prefix (css, css)
+? support.css-value (css)
+? source.php (html, html)
+? variable.language.php-tag (html, html)
+? php (html)
+? source.css (html, html)
+? support.tag.style (html, html, html, html)
+? css (html)
++ entity.tag.style (html)
+? source.js (html, html)
+? support.tag.script (html, html, html, html)
+? javascript (html)
++ entity.tag.script (html)
+? support.tag.open (html)
+? support.tag.close (html)
++ support.tag (html, html, html)
+? support.tag.special (html)
++ support.tag-name (html)
++ support.attribute (html, html)
+? support.operator (html, html)
++ string.quote (html, html)
+? support.value (html)
+================================ Java + keyword + constant.keyword
+? support.namespace (java) namespace name
+? char (java, java)
+? integer (java, java)
+? support.annotation (java, java)
++ entity.function (java)
+? entity.class (java, java)
++ operator (java, java, json, json, pascal, pascal)
+================================
++ magic.strict (javascript, javascript)
++ property (json, json)
++ comment.block.pascal (pascal, pascal)
++ pascal.assignment (pascal, pascal)
 */
