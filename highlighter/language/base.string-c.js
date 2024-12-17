@@ -5,9 +5,9 @@ RuleSet.extend("base.string-c", [
     {
         matches: {
             1: {
-                name: "string",
+                name: namingScheme.string.value,
                 matches: {
-                    name: "string.character.escape",
+                    name: namingScheme.string.character.escape,
                     pattern: /\\"{1}/g
                 }
             }

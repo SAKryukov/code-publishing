@@ -14,24 +14,20 @@ window.onload = () => {
     const _researchHandler = () => {
         const nameSet = new Set();
         const nameList = [];
-        const reportPattern = (name, language, indirect) => {
+        const reportPattern = (name, language) => {
             if (nameSet.has(name)) return;
-            nameList.push(`${name} (${indirect? "indirect": "direct"} ${language})`);
+            nameList.push(`${name} (${language})`);
             nameSet.add(name);
         } //reportPattern
-        const collectPattern = (language, pattern, indirect) => {
-            if (pattern.name != null)
-                reportPattern(pattern.name, language, indirect);
-            else if (pattern.matches != null) {
-                for (let matchIndex in pattern.matches)
-                    for (let innerPattern in pattern.matches[matchIndex]) {
-                        if (!isNaN(innerPattern) && pattern.matches[matchIndex].constructor == String) {
-                            reportPattern(pattern.matches[matchIndex], language, true);
-                        } else
-                            collectPattern(language, innerPattern, true);
-                } //loop
+        const collectPattern = (language, pattern) => {
+            if (pattern == null) return;
+            if (pattern.name != null) {
+                reportPattern(pattern.name, language);
             } //if
-        }; //reportPattern
+            for (let index in pattern)
+                if ((pattern[index] != null) && (pattern[index].constructor == Object))
+                    collectPattern(language, pattern[index]);
+        }; //collectPattern
         for (let language in RuleSet.patterns) {
             const patternSet = RuleSet.patterns[language];
             for (let pattern of patternSet)
