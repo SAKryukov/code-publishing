@@ -244,7 +244,7 @@ String: darkRed, rgb(163, 21, 21)
 + support.tag-name (html)
 + support.attribute (html, html)
 ? support.operator (html, html)
-+ string.quote (html, html)
++ literal.quote (html, html)
 ? support.value (html)
 ================================ Java + keyword + constant.keyword
 ? support.namespace (java) namespace name

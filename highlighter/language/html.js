@@ -115,7 +115,7 @@ RuleSet.extend('html', [
             3: namingScheme.literal.string,
             4: namingScheme.literal.quote
         },
-        pattern: /(=)('|")(.*?)(\2)/g
+        pattern: /(=)\s*('|")(.*?)(\2)/g
     },
     {
         matches: {
