@@ -3,7 +3,7 @@
  *
  * @author Craig Campbell
  */
-RuleSet.extend('css', [
+RuleSet.extend("css", [
     {
         name: namingScheme.comment.text,
         pattern: /\/\*[\s\S]*?\*\//gm
