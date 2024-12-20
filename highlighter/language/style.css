@@ -1,21 +1,8 @@
 /*
-// Languages:
-base.*
-json
-csharp
-cpp
-c
-html
-java
-javascript
-css: todo
-*/
-
-/*
 // Rule names, +: used in CSS, ?: unused:
-+ literal.string (base.string-c, base.string-c, base.apostrophe-string, base.apostrophe-string, css, css, html, javascript, javascript, json, json, pascal, pascal)
-+ literal.escape (base.string-c, base.string-c, base.apostrophe.character, base.apostrophe.character, base.apostrophe-string, base.apostrophe-string, javascript, javascript)
-+ constant.value.character (base.apostrophe.character, base.apostrophe.character)
++ literal.string (base.string-c, base.string-c, base.apostrophe-string, base.apostrophe-string, css, css, html, html, html, html, html, javascript, javascript, json, json, pascal, pascal)
++ literal.escape (base.string-c, base.string-c, base.apostrophe.character, base.apostrophe.character, base.apostrophe-string, base.apostrophe-string, javascript, javascript, pascal, pascal, pascal, pascal)
+? constant.value.character (base.apostrophe.character, base.apostrophe.character)
 + comment.text (base.comment-c, base.comment-c, base.comment-number-sign, base.comment-number-sign, css, css, pascal, pascal)
 + comment.block (base.comment-block-c, base.comment-block-c, html, html)
 ? literal.numeric (base.numeric, base.numeric)
@@ -27,18 +14,28 @@ css: todo
 + name.function (c, c, java, javascript, javascript)
 + storage.modifier (c, c)
 + literal.keyword (csharp, csharp, java, java, javascript, pascal, pascal)
-? constant.numeric (css)
-+ unit (css)
-? support.css-property (css, css)
-? support.vendor-prefix (css, css)
-? support.css-value (css)
++ css.numeric (css)
++ css.unit (css)
++ property (css, css, json, json)
++ css.vendor.prefix (css, css)
+? css.sass (css, css)
++ css.direct.descendant (css, css)
++ css.class (css, css)
++ css.id (css, css)
++ css.pseudo (css, css)
++ css.selector.name (css, css)
++ css.value (css)
 ? source.php (html, html, html)
 ? xmltag.php (html, html)
-? source.css (html, html, html)
-? xmltag.style.open (html, html)
-? xmltag.style.close (html, html)
-? xmltag.style.tag (html)
++ source.css (html, html, html)
++ xmltag.style.open (html, html)
++ xmltag.style.name (html, html)
++ xmltag.style.attribute (html, html)
++ xmltag.style.close (html, html)
++ xmltag.style.tag (html)
 ? xmltag.script.open (html, html)
+? xmltag.script.name (html, html)
+? xmltag.script.attribute (html, html)
 ? xmltag.script.close (html, html)
 ? source.javascript (html)
 ? xmltag.script.tag (html)
@@ -56,9 +53,6 @@ css: todo
 + name.class (java, java)
 + operator (java, java, json, json, pascal, pascal)
 + magic.strict (javascript)
-+ property (json, json)
 + comment.pascal (pascal, pascal)
 + assignment (pascal, pascal)
-+ pascal.part (pascal, pascal)
-Bad CSS rules: selector, storage.type
-*/
++ pascal.part (pascal, pascal)*/

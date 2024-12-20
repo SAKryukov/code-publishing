@@ -12,22 +12,24 @@ window.onload = () => {
     const validationHandler = () => {
         const ruleSet = new Set();
         const badSelectors = [];
-        for (let rule of document.styleSheets[0].cssRules) {
-            const terms = rule.selectorText.split(", ");
-            for (let wideName of terms) {
-                const components = wideName.split(" ");
-                if (components.length == 2) {
-                    if (components[0] != namingScheme.pre) {
-                        badSelectors.push(wideName); continue;
-                    } //if
-                    const name = components[1].substring(
-                        namingScheme.span.length + 1,
-                        components[1].length - namingScheme.highlighter.length - 1);
-                    ruleSet.add(name);
-                } else
-                    badSelectors.push(wideName);
-            } //loop
-        } // loop ruleSet
+        let testCss = document.styleSheets.length >= 2;
+        if (testCss)
+            for (let rule of document.styleSheets[0].cssRules) {
+                const terms = rule.selectorText.split(", ");
+                for (let wideName of terms) {
+                    const components = wideName.split(" ");
+                    if (components.length == 2) {
+                        if (components[0] != namingScheme.pre) {
+                            badSelectors.push(wideName); continue;
+                        } //if
+                        const name = components[1].substring(
+                            namingScheme.span.length + 1,
+                            components[1].length - namingScheme.highlighter.length - 1);
+                        ruleSet.add(name);
+                    } else
+                        badSelectors.push(wideName);
+                } //loop
+            } // loop ruleSet
         const nameMap = new Map();
         const reportPattern = (name, language) => {
             if (nameMap.has(name))
@@ -57,17 +59,19 @@ window.onload = () => {
         } //loop
         const nameList = ["// Rule names, +: used in CSS, ?: unused:"];
         for (const [name, value] of nameMap) {
-            const isUsed = ruleSet.has(name);
+            const isUsed = testCss && ruleSet.has(name);
             nameList.push(`${isUsed ? "+" : "?"} ${name} (${value.join(", ")})`);
         } //loop
         for (let rule of ruleSet) {
             if (!nameMap.has(rule) && rule != namingScheme.customWord)
                 badSelectors.push(rule);
-        } //loop badNames
-        if (badSelectors.length > 0) {
+        } //loop badNames       
+        if (testCss && badSelectors.length > 0) {
             const badSelectorsLine = badSelectors.join(", ");
             nameList.push(`Bad CSS rules: ${badSelectorsLine}`);    
         } //if
+        if (!testCss)
+            nameList.push("// To test CSS, move hightlighter styles to first embedded <style></style> element")
         output.value = nameList.join("\n"); 
     }; //validationHandler
 

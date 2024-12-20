@@ -1,6 +1,7 @@
 /**
  * CSS patterns
  *
+ * @author Sergey A Kryukov
  * @author Craig Campbell
  */
 RuleSet.extend("css", [
@@ -10,8 +11,8 @@ RuleSet.extend("css", [
     },
     {
         matches: {
-            1: 'constant.numeric',
-            2: namingScheme.unit
+            1: namingScheme.css.numeric,
+            2: namingScheme.css.unit
         },
         pattern: /(\d+)(px|em|cm|s|%)?/g
     },
@@ -30,7 +31,7 @@ RuleSet.extend("css", [
         matches: {
             1: [
                 {
-                    name: 'entity.name.sass',
+                    name: namingScheme.css.sass,
                     pattern: /&amp;/g
                 },
                 {
@@ -38,19 +39,19 @@ RuleSet.extend("css", [
                     pattern: /&gt;/g
                 },
                 {
-                    name: namingScheme.class,
+                    name: namingScheme.css.class,
                     pattern: /\.[\w\-_]+/g
                 },
                 {
-                    name: 'entity.name.id',
+                    name: namingScheme.css.id,
                     pattern: /\#[\w\-_]+/g
                 },
                 {
-                    name: 'entity.name.pseudo',
+                    name: namingScheme.css.pseudo,
                     pattern: /:[\w\-_]+/g
                 },
                 {
-                    name: 'entity.name.tag',
+                    name: namingScheme.css.selector.name,
                     pattern: /\w+/g
                 }
             ]
@@ -59,11 +60,11 @@ RuleSet.extend("css", [
     },
     {
         matches: {
-            2: 'support.vendor-prefix',
-            3: 'support.css-value'
+            2: namingScheme.css.vendor.prefix,
+            3: namingScheme.css.value,
         },
         pattern: /(:|,)\s*(-o-|-moz-|-webkit-|-ms-)?([a-zA-Z-]*)(?=\b)(?!.*\{)/g
     }
 ]);
 
-RuleSet.addAlias('scss', 'css');
+RuleSet.addAlias("scss", "css");

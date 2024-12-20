@@ -44,7 +44,6 @@
         }
   
         pre span.keyword.highlighter,
-        pre span.selector.highlighter,
         pre span.storage.modifier.highlighter {
             color: blue;
         }
@@ -58,11 +57,6 @@
     
         pre span.literal.keyword.highlighter {
             color: darkviolet;
-        }
-    
-        pre span.unit.highlighter {
-            font-weight: normal;
-            color: darkRed;
         }
     
         pre span.annotation.highlighter,
@@ -128,19 +122,36 @@
         pre span.comment.docstring.highlighter { color: darkMagenta; }
         */
     
-        pre span.entity.name.tag.highlighter {
+        pre span.css.selector.name.highlighter {
             color: brown;
             font-weight: bold;
-            font-size: 150%;
         }
-        pre span.support.css-property.highlighter {
+        pre span.css.class.highlighter {
             color: blue;
+            font-weight: bold;
         }
         pre span.css.vendor.prefix.highlighter {
             color: red;
         }
         pre span.css.direct.descendant.highlighter {
             color: navy;
+        }
+        pre span.css.id.highlighter {
+            color: darkorchid;
+            font-weight: bold;
+        }
+        pre span.css.pseudo.highlighter {
+            color: darkgoldenrod;
+            font-weight: bold;
+        }
+        pre span.css.numeric.highlighter {
+            color: darkorange
+        }
+        pre span.css.unit.highlighter {
+            color: darkred;
+        }
+        pre span.css.value.highlighter {
+            color: black;
         }
     </style>
     <style>  

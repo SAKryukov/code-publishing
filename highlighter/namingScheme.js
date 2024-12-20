@@ -18,7 +18,6 @@ const namingScheme = (() => {
         //////////////////////////////////
         property: 0, // css, json
         operator: 0,
-        unit: 0, // CSS unit of measurement
         keyword: 0,
         annotation: 0,
         assignment: 0,
@@ -63,6 +62,14 @@ const namingScheme = (() => {
         css: {
             vendor: { prefix: 0, },
             direct: { descendant: 0, },
+            selector: { name: 0, },
+            class: 0,
+            id: 0,
+            pseudo: 0,
+            unit: 0,
+            numeric: 0,
+            sass: 0,
+            value: 0,
         },
         xmltag: {
             all: 0, //support.tag

@@ -43,7 +43,18 @@ summary:has(+ pre) {
     justify-content: space-between;
     align-items: center;
 }
+.transition, p.transition: {
+    -webkit-transition: all 4s ease;
+    -moz-transition: all 4s ease;
+    -ms-transition: all 4s ease;
+    -o-transition: all 4s ease;
+    transition: all 4s ease;
+    /* vendor prefixes demo */
+}
+p:last-child { color: yellow; }
 summary:has(+ pre) > span:last-child { font-size: 90%; }
+body > p { color: red; }
+#id-demo { color: blue; }
 `,
 
 ////////////////////////////////////////////////
@@ -234,13 +245,13 @@ namespace SA.Agnostic.Enumerations {
     /// <typeparam name="ENUM">There is no constraint on this type; for most typical application this is an enumeration type</typeparam>
     public class Enumeration<ENUM> : IEnumerable<EnumerationItem<ENUM>> {
 
-        public Enumeration(bool dynamic = false) {
-            BuildEnumerationCollection(dynamic: dynamic);
+        public Enumeration(bool isDynamic = false) {
+            BuildEnumerationCollection(isDynamic: isDynamic);
             enumeratorInstance = new Enumerator(this);
         } //Enumeration
 
         public Enumeration() {
-            BuildEnumerationCollection(dynamic: false);
+            BuildEnumerationCollection(isDynamic: false);
             enumeratorInstance = new Enumerator(this);
         } //Enumeration
 
@@ -333,8 +344,8 @@ namespace SA.Agnostic.Enumerations {
 
         delegate void BuildAction();
 
-        static void BuildEnumerationCollection(bool dynamic = false) {
-            if (!dynamic && enumerationCollection != null) return;
+        static void BuildEnumerationCollection(bool isDynamic = false) {
+            if (!isDynamic && enumerationCollection != null) return;
             BuildEnumerationCollectionCore();
         } //BuildEnumerationCollection
 
