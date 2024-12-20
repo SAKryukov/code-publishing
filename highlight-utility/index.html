@@ -22,12 +22,160 @@
     <script src="code-samples.js"></script>
     <script src="main.js"></script>
     <style>
-        @import url(../highlighter/language/style.css);
+        pre span.magic.strict.highlighter {
+            color: darkviolet;
+            font-weight: bold;
+        }
+    
+        pre span.comment.text.highlighter,
+        pre span.comment.block.highlighter,
+        pre span.comment.html.highlighter {
+            color: green;
+        }
+    
+        pre span.comment.block.pascal.highlighter {
+            color: #367
+        }
+    
+        pre span.keyword.highlighter,
+        pre span.selector.highlighter,
+        pre span.storage.module.highlighter,
+        pre span.storage.class.highlighter,
+        pre span.storage.function.highlighter {
+            color: blue;
+            font-weight: normal;
+        }
+    
+        pre span._custom-word_.highlighter {
+            color: slateBlue;
+        }
+    
+        pre span.literal.keyword.highlighter {
+            color: darkviolet;
+        }
+    
+        pre span.literal.keyword.highlighter,
+        pre span.constant.value.numeric.highlighter,
+        pre span.constant.value.character.highlighter,
+        pre span.unit.highlighter {
+            font-weight: normal;
+            color: darkRed;
+        }
+    
+        /* ???????????????????????????????????????????????????? */
+    
+        pre span.entity.label.highlighter {
+            background-color: red;
+        }
+    
+        pre span.preprocessor.keyword.highlighter {
+            color: steelBlue;
+            font-weight: bold
+        }
+    
+        pre span.preprocessor.value.highlighter {
+            color: sandybrown;
+            font-weight: bold
+        }
+    
+        pre span.operator.highlighter {
+            color: darkMagenta;
+        }
+    
+        pre span.property.highlighter,
+        pre span.constant.language.highlighter {
+            color: #038;
+            font-weight: bold
+        }
+    
+        pre span.constant.symbol.highlighter,
+        pre span.class.highlighter {
+            color: #036;
+            font-weight: bold
+        }
+    
+        pre span.keyword.namespace.highlighter,
+        pre span.entity.name.class.highlighter {
+            color: #B06;
+            font-weight: bold
+        }
+    
+        pre span.literal.string.highlighter,
+        pre span.literal.quote.highlighter,
+        pre span.literal.escape.highlighter {
+            color: #AA3300;
+        }
+    
+        pre span.comment.docstring.highlighter
+    
+        /* python */
+            {
+            color: darkMagenta;
+        }
+    
+        pre span.string.regexp.highlighter {
+            /* ??? */
+            background-color: #FFF0FF;
+            color: #808
+        }
+    
+        pre span.variable.highlighter,
+        pre span.variable.instance.highlighter {
+            color: #33B
+        }
+    
+        pre span.entity.name.function.highlighter {
+            color: #06B;
+            font-weight: bold
+        }
+    
+        pre span.support.tag.highlighter,
+        pre span.support.tag-name.highlighter,
+        pre span.entity.tag.script.highlighter,
+        pre span.entity.tag.style.highlighter {
+            color: #070
+        }
+    
+        pre span.support.attribute.highlighter {
+            color: #007;
+            font-style: italic
+        }
+    
+        pre span.entity.name.tag.highlighter,
+        pre span.storage.type.highlighter {
+            color: #070;
+            font-weight: bold
+        }
+    
+        pre span.variable.self.highlighter,
+        pre span.support.function.highlighter {
+            color: #038;
+            font-weight: bold
+        }
+    
+        pre span.entity.function.highlighter,
+        pre span.support.magic.highlighter {
+            color: #C00;
+            font-weight: bold
+        }
+    
+        pre span.preprocessor.highlighter,
+        pre span.meta.preprocessor.highlighter {
+            color: rebeccaPurple;
+            font-weight: bold
+        }
+    
+        pre span.pascal.assignment.highlighter {
+            color: blue;
+            font-weight: bold
+        }
+    </style>
+    <style>  
         * { font-family: sans-serif; }
         textarea { width: 100%; height: 20em; }
-        label { width: 100%; display: flex; flex-direction: row; align-items: center; justify-content:space-between; }
+        label { width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-between; }    
         input { width: 100%; }
-        label > span { white-space: nowrap; margin-right: 0.4em; }
+        label>span { white-space: nowrap; margin-right: 0.4em; }
         textarea:last-of-type { height: 10em; }
     </style>
 </head>

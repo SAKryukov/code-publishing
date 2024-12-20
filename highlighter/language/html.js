@@ -97,7 +97,7 @@ RuleSet.extend('html', [
         name: 'support.tag',
         matches: {
             1: 'support.tag',
-            2: 'support.tag.special',
+            2: 'support.tag.special', // ! or / inside <>
             3: 'support.tag-name'
         },
         pattern: /(&lt;\??)(\/|\!?)(\w+)/g
@@ -117,7 +117,7 @@ RuleSet.extend('html', [
         },
         pattern: /(=)\s*('|")(.*?)(\2)/g
     },
-    {
+    { // in script?
         matches: {
             1: 'support.operator',
             2: 'support.value'
@@ -125,7 +125,7 @@ RuleSet.extend('html', [
         pattern: /(=)([a-zA-Z\-0-9]*)\b/g
     },
     {
-        matches: {
+        matches: { // attribute name
             1: 'support.attribute'
         },
         pattern: /\s([\w-]+)(?=\s|&gt;)(?![\s\S]*&lt;)/g

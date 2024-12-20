@@ -8,7 +8,12 @@
 
 const namingScheme = (() => {
 
-    const scheme = {       
+    const scheme = {
+        //non-rule constants: 
+        highlighter: 0,
+        span: 0,
+        //rule names:
+        //////////////////////////////////
         property: 0,
         operator: 0,
         unit: 0, // CSS unit of measurement

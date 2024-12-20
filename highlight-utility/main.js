@@ -9,9 +9,22 @@ window.onload = () => {
     const demo = document.querySelector("pre");
     const customWords = document.querySelector("label > input");
 
-    /* 
+    ///* 
     // method to collect all pattern names from all languages:
     const _researchHandler = () => {
+        const ruleSet = new Set();
+        for (let rule of document.styleSheets[0].cssRules) {
+            const terms = rule.selectorText.split(", ");
+            for (let wideName of terms) {
+                const components = wideName.split(" ");
+                if (components.length == 2) {
+                    const name = components[1].substring(
+                        namingScheme.span.length + 1,
+                        components[1].length - namingScheme.highlighter.length - 1);
+                    ruleSet.add(name);
+                }    
+            } //loop
+        } // loop ruleSet
         const nameMap = new Map();
         const reportPattern = (name, language) => {
             if (nameMap.has(name))
@@ -36,12 +49,14 @@ window.onload = () => {
             for (let pattern of patternSet)
                 collectPattern(language, pattern);
         } //loop
-        const nameList = [];
-        for (const [name, value] of nameMap)
-            nameList.push(`${name} (${value.join(", ")})`);
+        const nameList = ["// Rule names, +: used in CSS, ?: unused:"];
+        for (const [name, value] of nameMap) {
+            const isUsed = ruleSet.has(name);
+            nameList.push(`${isUsed ? "+" : "?"} ${name} (${value.join(", ")})`);
+        } //loop
         output.value = nameList.join("\n"); 
     }; //_researchHandler
-    */
+    //*/
 
     const selectionHandler = (event) => {
         copy.style.display = event.target.selectionStart == event.target.selectionEnd
@@ -50,7 +65,7 @@ window.onload = () => {
     input.onpointerup = event => selectionHandler(event);
     input.onkeyup = event => selectionHandler(event);
 
-    const highlighter = new Highlighter({ globalClass: "highlighter" });
+    const highlighter = new Highlighter({ globalClass: namingScheme.highlighter });
     const convertHandler = () => {
         const source = input.value;
         const result = highlighter.colorize(source, inputLanguage.value, null, customWords.value);
@@ -60,10 +75,12 @@ window.onload = () => {
     const copyHandler = () => navigator.clipboard.writeText(output.value);
     
     convert.onclick = () => convertHandler();
-    //convert.onclick = () => _researchHandler();
     copy.onclick = () => copyHandler();
     window.onkeydown = event => {
-        if (event.code == "F2") {
+        if (event.code == "F1" && event.ctrlKey) {
+            _researchHandler();
+            event.preventDefault();
+        } else if (event.code == "F2") {
             convertHandler();
             event.preventDefault();
         } else if (input.selectionStart == input.selectionEnd && event.ctrlKey) {
