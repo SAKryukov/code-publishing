@@ -33,28 +33,35 @@
             color: green;
         }
     
-        pre span.comment.block.pascal.highlighter {
+        pre span.comment.pascal.highlighter {
             color: #367
         }
+        pre span.pascal.part.highlighter {
+            color: saddlebrown;
+            letter-spacing: 0.1em;
+        }
+        pre span.assignment.highlighter {
+            color: darkmagenta;
+        }
+
     
         pre span.keyword.highlighter,
         pre span.selector.highlighter,
-        pre span.storage.module.highlighter,
-        pre span.storage.class.highlighter,
-        pre span.storage.function.highlighter {
+        pre span.storage.modifier.highlighter {
             color: blue;
-            font-weight: normal;
+        }
+        pre span.type.keyword.highlighter {
+            color: brown;
         }
     
         pre span._custom-word_.highlighter {
-            color: slateBlue;
+            color: darkslateblue;
         }
     
         pre span.literal.keyword.highlighter {
             color: darkviolet;
         }
     
-        pre span.literal.keyword.highlighter,
         pre span.constant.value.numeric.highlighter,
         pre span.constant.value.character.highlighter,
         pre span.unit.highlighter {
@@ -68,11 +75,17 @@
             background-color: red;
         }
     
+        pre span.annotation.highlighter,
+        pre span.preprocessor.signature.highlighter,
         pre span.preprocessor.keyword.highlighter {
             color: steelBlue;
             font-weight: bold
         }
-    
+        pre span.meta.preprocessor.highlighter {
+            color: rebeccaPurple;
+        }
+
+        
         pre span.preprocessor.value.highlighter {
             color: sandybrown;
             font-weight: bold
@@ -94,10 +107,11 @@
             font-weight: bold
         }
     
-        pre span.keyword.namespace.highlighter,
-        pre span.entity.name.class.highlighter {
+        pre span.name.namespace.highlighter {
+            color: blue;
+        }
+        pre span.name.class.highlighter {
             color: #B06;
-            font-weight: bold
         }
     
         pre span.literal.string.highlighter,
@@ -124,21 +138,33 @@
             color: #33B
         }
     
-        pre span.entity.name.function.highlighter {
+        pre span.name.function.highlighter {
             color: #06B;
             font-weight: bold
         }
-    
-        pre span.support.tag.highlighter,
-        pre span.support.tag-name.highlighter,
-        pre span.entity.tag.script.highlighter,
-        pre span.entity.tag.style.highlighter {
-            color: #070
+
+
+        pre span.xmltag.all.highlighter,
+        pre span.xmltag.close.highlighter
+        {
+            color: darkgreen;
         }
-    
-        pre span.support.attribute.highlighter {
-            color: #007;
-            font-style: italic
+        pre span.xmltag.attribute.highlighter {
+            color: purple;
+            font-style: italic;
+        }
+        pre span.xmltag.operator.highlighter {
+            color: blue;
+            font-weight: semibold;
+        }
+        pre span.source.style.highlighter,
+        pre span.xmltag.style.tag,
+        pre span.xmltag.style.open,
+        pre span.xmltag.style.close,
+        pre span.xmltag.style.name,
+        pre span.xmltag.style.attribute
+        {
+            color: green;
         }
     
         pre span.entity.name.tag.highlighter,
@@ -156,22 +182,11 @@
         pre span.entity.function.highlighter,
         pre span.support.magic.highlighter {
             color: #C00;
-            font-weight: bold
-        }
-    
-        pre span.preprocessor.highlighter,
-        pre span.meta.preprocessor.highlighter {
-            color: rebeccaPurple;
-            font-weight: bold
-        }
-    
-        pre span.pascal.assignment.highlighter {
-            color: blue;
-            font-weight: bold
-        }
+        }        
     </style>
     <style>  
         * { font-family: sans-serif; }
+        pre, pre span { font-family: monospace; letter-spacing: 0; }
         textarea { width: 100%; height: 20em; }
         label { width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-between; }    
         input { width: 100%; }

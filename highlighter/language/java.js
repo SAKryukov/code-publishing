@@ -2,6 +2,7 @@
 * Java patterns
 *
 * @author Leo Accend
+* @author Sergey A Kryukov
 */
 RuleSet.extend( "java", [
   {
@@ -11,7 +12,7 @@ RuleSet.extend( "java", [
   {
     matches: {
       1: namingScheme.keyword,
-      2: "support.namespace"
+      2: namingScheme.name.namespace,
     },
     pattern: /(import|package)\s(.+)/g
   },
@@ -21,30 +22,22 @@ RuleSet.extend( "java", [
     pattern: /\b(abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|native|new|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|transient|try|void|volatile|while)\b/g
   },
   {
-    name: "char",
-    pattern: /(')(.|\\.|\\u[\dA-Fa-f]{4})\1/g
-  },
-  {
-    name: "integer",
-    pattern: /\b(0x[\da-f]+|\d+)L?\b/g
-  },
-  {
-    name: "support.annotation",
+    name: namingScheme.annotation,
     pattern: /@\w+/g
   },
   {
     matches: {
-      1: "entity.function"
+      1: namingScheme.name.function
     },
     pattern: /([^@\.\s]+)\(/g
   },
   {
-    name: "entity.class",
+    name: namingScheme.name.class,
     pattern: /\b([A-Z]\w*)\b/g
   },
   {
     // see http://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html
-    name: "operator",
+    name: namingScheme.operator,
     pattern: /(\+{1,2}|-{1,2}|~|!|\*|\/|%|(?:&lt;){1,2}|(?:&gt;){1,3}|instanceof|(?:&amp;){1,2}|\^|\|{1,2}|\?|:|(?:=|!|\+|-|\*|\/|%|\^|\||(?:&lt;){1,2}|(?:&gt;){1,3})?=)/g
   }
 ], ["base.string-c", "base.comment-block-c", "base.comment-c"]);

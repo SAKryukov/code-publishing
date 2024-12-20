@@ -7,59 +7,33 @@
  */
 RuleSet.extend('c', [
     {
-        name: 'preprocessor.keyword',
-        pattern: /#(define|elif|else|endif|error|if|ifdef|ifndef|import|include|line|pragma|undef|using)\b/g
-    },
-    {
-        name: 'meta.preprocessor',
         matches: {
-            1: [
-                {
-                    matches: {
-                        1: 'keyword.define',
-                        2: 'entity.name'
-                    },
-                    pattern: /(\w+)\s(\w+)\b/g
-                },
-                {
-                    name: 'keyword.define',
-                    pattern: /endif/g
-                },
-                {
-                    name: 'constant.numeric',
-                    pattern: /\d+/g
-                },
-                {
-                    matches: {
-                        1: 'keyword.include',
-                        2: 'string'
-                    },
-                    pattern: /(include)\s(.*?)$/g
-                }
-            ]
+            1: namingScheme.preprocessor.signature,
+            2: namingScheme.preprocessor.keyword,
+            3: namingScheme.preprocessor.value,
         },
-        pattern: /\#([\S\s]*?)$/gm
+        pattern: /(#)(include|define|elif|else|endif|error|ifdef|ifndef|if|import|line|pragma|undef|using)(.*?)$/gm
     },
     {
         name: namingScheme.keyword,
-        pattern: /\b(do|goto|typedef|struct|union|enum)\b/g
+        pattern: /\b(alignas|alignof|auto|bool|break|case|char|const|constexpr|continue|default|do|double|else|enum|extern|false|float|for|goto|if|inline|int|long|nullptr|register|restrict|return|short|signed|sizeof|static|static_assert|struct|switch|thread_local|true|typedef|typeof|typeof_unqual|union|unsigned|void|volatile|while|_Alignas|_Alignof|_Atomic|_BitInt|_Bool|_Complex|_Decimal128|_Decimal32|_Decimal64|_Generic (C11)|_Imaginary|_Noreturn|_Static_assert|_Th)\b/g
     },
     {
         matches: {
-            1: 'storage.type',
-            3: 'storage.type',
-            4: 'entity.name.function'
+            1: namingScheme.type.keyword,
+            3: namingScheme.type.keyword,
+            4: namingScheme.name.function
         },
         pattern: /\b((un)?signed|const)? ?(void|char|short|int|long|float|double)\*? +((\w+)(?= ?\())?/g
     },
     {
         matches: {
-            2: 'entity.name.function'
+            2: namingScheme.name.function
         },
         pattern: /(\w|\*) +((\w+)(?= ?\())/g
     },
     {
-        name: 'storage.modifier',
+        name: namingScheme.storage.modifier,
         pattern: /\b(static|extern|auto|register|volatile|inline)\b/g
     },
 ], ["base.comment-block-c", "base.comment-c", "base.string-c"]);

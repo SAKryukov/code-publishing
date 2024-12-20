@@ -2,16 +2,17 @@
  * HTML patterns
  *
  * @author Craig Campbell
+ * @author Sergey A Kryukov
  */
-RuleSet.extend('html', [
+RuleSet.extend("html", [
     {
         name: namingScheme.source.php,
         matches: {
-            1: 'variable.language.php-tag',
+            1: namingScheme.xmltag.php,
             2: {
-                language: 'php'
+                language: namingScheme.source.php,
             },
-            3: 'variable.language.php-tag'
+            3: namingScheme.xmltag.php,
         },
         pattern: /(&lt;\?php|&lt;\?=?(?!xml))([\s\S]*?)(\?&gt;)/gm
     },
@@ -20,31 +21,31 @@ RuleSet.extend('html', [
         matches: {
             1: {
                 matches: {
-                    1: 'support.tag.style',
+                    1: namingScheme.xmltag.style.open,
                     2: [
                         {
-                            name: 'entity.tag.style',
+                            name: namingScheme.xmltag.style.name,
                             pattern: /^style/g
                         },
                         {
-                            name: 'string',
+                            name: namingScheme.literal.string,
                             pattern: /('|")(.*?)(\1)/g
                         },
                         {
-                            name: 'entity.tag.style.attribute',
+                            name: namingScheme.xmltag.style.attribite,
                             pattern: /(\w+)/g
                         }
                     ],
-                    3: 'support.tag.style'
+                    3: namingScheme.xmltag.style.close,
                 },
                 pattern: /(&lt;\/?)(style.*?)(&gt;)/g
             },
             2: {
-                language: 'css'
+                language: namingScheme.source.css,
             },
-            3: 'support.tag.style',
-            4: 'entity.tag.style',
-            5: 'support.tag.style'
+            3: namingScheme.xmltag.style.open,
+            4: namingScheme.xmltag.style.tag,
+            5: namingScheme.xmltag.style.close,
         },
         pattern: /(&lt;style.*?&gt;)([\s\S]*?)(&lt;\/)(style)(&gt;)/gm
     },
@@ -53,32 +54,31 @@ RuleSet.extend('html', [
         matches: {
             1: {
                 matches: {
-                    1: 'support.tag.script',
+                    1: namingScheme.xmltag.script.open,
                     2: [
                         {
-                            name: 'entity.tag.script',
+                            name: namingScheme.xmltag.script.name,
                             pattern: /^script/g
                         },
-
                         {
-                            name: 'string',
+                            name: namingScheme.literal.string,
                             pattern: /('|")(.*?)(\1)/g
                         },
                         {
-                            name: 'entity.tag.script.attribute',
+                            name: namingScheme.xmltag.script.attribite,
                             pattern: /(\w+)/g
                         }
                     ],
-                    3: 'support.tag.script'
+                    3: namingScheme.xmltag.script.close,
                 },
                 pattern: /(&lt;\/?)(script.*?)(&gt;)/g
             },
             2: {
-                language: 'javascript'
+                language: namingScheme.source.javascript,
             },
-            3: 'support.tag.script',
-            4: 'entity.tag.script',
-            5: 'support.tag.script'
+            3: namingScheme.xmltag.script.open,
+            4: namingScheme.xmltag.script.tag,
+            5: namingScheme.xmltag.script.close,
         },
         pattern: /(&lt;script(?! src).*?&gt;)([\s\S]*?)(&lt;\/)(script)(&gt;)/gm
     },
@@ -88,29 +88,29 @@ RuleSet.extend('html', [
     },
     {
         matches: {
-            1: 'support.tag.open',
-            2: 'support.tag.close'
+            1: namingScheme.xmltag.open,
+            2: namingScheme.xmltag.close,
         },
         pattern: /(&lt;)|(\/?\??&gt;)/g
     },
     {
-        name: 'support.tag',
+        name: namingScheme.xmltag.all,
         matches: {
-            1: 'support.tag',
-            2: 'support.tag.special', // ! or / inside <>
-            3: 'support.tag-name'
+            1: namingScheme.xmltag.all,
+            2: namingScheme.xmltag.special, // ! or / inside <>
+            3: namingScheme.xmltag.name,
         },
         pattern: /(&lt;\??)(\/|\!?)(\w+)/g
     },
     {
         matches: {
-            1: 'support.attribute'
+            1: namingScheme.xmltag.attribute,
         },
         pattern: /([a-z-]+)(?=\=)/gi
     },
     {
         matches: {
-            1: 'support.operator',
+            1: namingScheme.xmltag.operator,
             2: namingScheme.literal.quote,
             3: namingScheme.literal.string,
             4: namingScheme.literal.quote
@@ -119,17 +119,17 @@ RuleSet.extend('html', [
     },
     { // in script?
         matches: {
-            1: 'support.operator',
-            2: 'support.value'
+            1: namingScheme.xmltag.operator,
+            2: namingScheme.xmltag.value,
         },
         pattern: /(=)([a-zA-Z\-0-9]*)\b/g
     },
     {
         matches: { // attribute name
-            1: 'support.attribute'
+            1: namingScheme.xmltag.attribute,
         },
         pattern: /\s([\w-]+)(?=\s|&gt;)(?![\s\S]*&lt;)/g
     }
 ]);
 
-RuleSet.addAlias('xml', 'html');
+RuleSet.addAlias("xml", "html");

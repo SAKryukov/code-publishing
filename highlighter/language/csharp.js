@@ -3,13 +3,14 @@
 *
 * @author Sergey A Kryukov
 */
-RuleSet.extend('csharp', [
+RuleSet.extend("csharp", [
     {
         matches: {
-            1: "preprocessor.keyword", 
-            2: "preprocessor.value" 
+            1: namingScheme.preprocessor.signature,
+            2: namingScheme.preprocessor.keyword,
+            3: namingScheme.preprocessor.value,
         },
-        pattern: /^\s*(#nullable|#if|#elif|#else|#endif|#define|#undef|#region|#endregion)(.*?)$/gm
+        pattern: /(#)(nullable|if|elif|else|endif|define|undef|region|endregion)(.*?)$/gm
     },
     { 
         name: namingScheme.keyword,

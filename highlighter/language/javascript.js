@@ -34,12 +34,19 @@ RuleSet.extend("javascript", [
         },
         pattern: /(new)\s+([^\(]*)(?=\()/g
     },
-    // matches arrow function declaration:
+    // matches arrow function declaration: //SA???
     {
         matches: {
-            1: 'entity.name.function', //SA???
+            1: namingScheme.name.function, 
         },
         pattern: /(\S*?)\s*?(\=|\:)\s*?(\(.*?\)|(\S+?))\s*?\=&gt;/g
+    },
+    {
+        matches: {
+            1: namingScheme.keyword,
+            2: namingScheme.name.function, 
+        },
+        pattern: /(function)\s+(.*?)\(/g
     },
 ], [
     "base.comment-block-c",
@@ -47,4 +54,4 @@ RuleSet.extend("javascript", [
     "base.numeric",
 ]);
 
-RuleSet.addAlias('js', 'javascript');
+RuleSet.addAlias("js", "javascript");

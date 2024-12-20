@@ -3,9 +3,9 @@
 *
 * @author Sergey A Kryukov
 */
-RuleSet.extend('pascal', [
+RuleSet.extend("pascal", [
     {
-        name: 'comment.block.pascal',
+        name: namingScheme.comment.pascal,
         pattern: /(\{(.|[\r\n])*?\})/gm
     },
     {
@@ -25,51 +25,33 @@ RuleSet.extend('pascal', [
         },
         pattern: /((("|')([^\\\1]|\\.)*?(\3)))/gm
     },
-    /*
-    {
-        matches: {
-            1: [
-                {
-                    name: namingScheme.operator,
-                    pattern: /\=|\+/g
-                },
-                {
-                    name: 'keyword.dot',
-                    pattern: /\./g
-                }
-            ],
-            2: {
-                name: 'string',
-                matches: {
-                    name: 'constant.character.escape',
-                    pattern: /\\("){1}/g
-                },
-                2: {
-                    name: 'character',
-                    matches: {
-                        name: 'constant.character.escape',
-                        pattern: /\\('){1}/g
-                    }
-                }
-            }
-        },
-        pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|")([^\\\1]|\\.)*?(\3))/gm
-    },*/
     {
         name: namingScheme.operator,
         pattern: /\+|\!|\-|&(gt|lt|amp);|\||\*|\=/g
     },
     {
-        name: 'pascal.assignment',
+        name: namingScheme.assignment,
         pattern: /:=/g
     },
     {
         name: namingScheme.keyword,
-        pattern: /\b(absolute|and|array|asm|begin|case|const|constructor|destructor|div|do|downto|else|end|file|for|function|goto|if|implementation|in|inherited|inline|interface|label|mod|nil|not|object|of|operator|or|packed|procedure|program|record|reintroduce|repeat|self|set|shl|shr|string|then|to|type|unit|until|uses|var|while|with|xor|as|class|dispinterface|except|exports|finalization|finally|initialization|inline|is|library|on|out|packed|property|raise|resourcestring|threadvar|try)(?=\b)/gi
+        pattern: /\b(absolute|and|array|asm|begin|case|const|constructor|destructor|div|do|downto|else|end|file|for|function|goto|if|in|inherited|inline|label|mod|not|object|of|operator|or|packed|procedure|program|record|reintroduce|repeat|self|set|shl|shr|then|to|type|unit|until|uses|var|while|with|xor|as|class|dispinterface|except|exports|finalization|finally|initialization|inline|is|library|on|out|packed|property|raise|resourcestring|threadvar|try)(?=\b)/gi
+    },
+    { 
+        name: namingScheme.type.keyword,
+        pattern: /\b(string|real|integer|character|boolean)\b/gi
+    },
+    {
+        name: namingScheme.pascal.part,
+        pattern: /\b(interface|implementation)(?=\b)/gi
+    },
+    { 
+        name: namingScheme.literal.keyword,
+        pattern: /\b(true|false|nil)\b/g
     },
     {
         name: namingScheme.comment.text,
         pattern: /\/\/.*?$/gm
     }, 
 
-], ['base.comment-c']);
+], ["base.comment-c"]);
