@@ -20,9 +20,9 @@ RuleSet.extend("css", [
         pattern: /('|")(.*?)\1/g
     },
     {
-        name: 'support.css-property',
+        name: namingScheme.property,
         matches: {
-            1: 'support.vendor-prefix'
+            1: namingScheme.css.vendor.prefix,
         },
         pattern: /(-o-|-moz-|-webkit-|-ms-)?[\w-]+(?=\s?:)(?!.*\{)/g
     },
@@ -34,11 +34,11 @@ RuleSet.extend("css", [
                     pattern: /&amp;/g
                 },
                 {
-                    name: 'direct-descendant',
+                    name: namingScheme.css.direct.descendant,
                     pattern: /&gt;/g
                 },
                 {
-                    name: 'entity.name.class',
+                    name: namingScheme.class,
                     pattern: /\.[\w\-_]+/g
                 },
                 {

@@ -9,20 +9,23 @@ window.onload = () => {
     const demo = document.querySelector("pre");
     const customWords = document.querySelector("label > input");
 
-    ///* 
-    // method to collect all pattern names from all languages:
-    const _researchHandler = () => {
+    const validationHandler = () => {
         const ruleSet = new Set();
+        const badSelectors = [];
         for (let rule of document.styleSheets[0].cssRules) {
             const terms = rule.selectorText.split(", ");
             for (let wideName of terms) {
                 const components = wideName.split(" ");
                 if (components.length == 2) {
+                    if (components[0] != namingScheme.pre) {
+                        badSelectors.push(wideName); continue;
+                    } //if
                     const name = components[1].substring(
                         namingScheme.span.length + 1,
                         components[1].length - namingScheme.highlighter.length - 1);
                     ruleSet.add(name);
-                }    
+                } else
+                    badSelectors.push(wideName);
             } //loop
         } // loop ruleSet
         const nameMap = new Map();
@@ -40,6 +43,9 @@ window.onload = () => {
                 if (pattern[index] != null) {
                     if ((Number(index) != NaN) && pattern[index].constructor == String)
                         reportPattern(pattern[index], language);
+                    else if ((Number(index) != NaN) && pattern[index].constructor == Array)
+                        for (let element of pattern[index])
+                            collectPattern(language, element);
                     else if (pattern[index].constructor == Object)
                         collectPattern(language, pattern[index]);
                 } //if
@@ -54,9 +60,16 @@ window.onload = () => {
             const isUsed = ruleSet.has(name);
             nameList.push(`${isUsed ? "+" : "?"} ${name} (${value.join(", ")})`);
         } //loop
+        for (let rule of ruleSet) {
+            if (!nameMap.has(rule) && rule != namingScheme.customWord)
+                badSelectors.push(rule);
+        } //loop badNames
+        if (badSelectors.length > 0) {
+            const badSelectorsLine = badSelectors.join(", ");
+            nameList.push(`Bad CSS rules: ${badSelectorsLine}`);    
+        } //if
         output.value = nameList.join("\n"); 
-    }; //_researchHandler
-    //*/
+    }; //validationHandler
 
     const selectionHandler = (event) => {
         copy.style.display = event.target.selectionStart == event.target.selectionEnd
@@ -78,7 +91,7 @@ window.onload = () => {
     copy.onclick = () => copyHandler();
     window.onkeydown = event => {
         if (event.code == "F1" && event.ctrlKey) {
-            _researchHandler();
+            validationHandler();
             event.preventDefault();
         } else if (event.code == "F2") {
             convertHandler();

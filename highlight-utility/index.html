@@ -28,8 +28,7 @@
         }
     
         pre span.comment.text.highlighter,
-        pre span.comment.block.highlighter,
-        pre span.comment.html.highlighter {
+        pre span.comment.block.highlighter {
             color: green;
         }
     
@@ -61,17 +60,9 @@
             color: darkviolet;
         }
     
-        pre span.constant.value.numeric.highlighter,
-        pre span.constant.value.character.highlighter,
         pre span.unit.highlighter {
             font-weight: normal;
             color: darkRed;
-        }
-    
-        /* ???????????????????????????????????????????????????? */
-    
-        pre span.entity.label.highlighter {
-            background-color: red;
         }
     
         pre span.annotation.highlighter,
@@ -79,12 +70,7 @@
         pre span.preprocessor.keyword.highlighter {
             color: steelBlue;
             font-weight: bold
-        }
-        pre span.meta.preprocessor.highlighter {
-            color: rebeccaPurple;
-        }
-
-        
+        }        
         pre span.preprocessor.value.highlighter {
             color: sandybrown;
             font-weight: bold
@@ -94,15 +80,8 @@
             color: darkMagenta;
         }
     
-        pre span.property.highlighter,
-        pre span.constant.language.highlighter {
+        pre span.property.highlighter {
             color: #038;
-            font-weight: bold
-        }
-    
-        pre span.constant.symbol.highlighter,
-        pre span.class.highlighter {
-            color: #036;
             font-weight: bold
         }
     
@@ -119,33 +98,13 @@
             color: #AA3300;
         }
     
-        pre span.comment.docstring.highlighter
-    
-        /* python */
-            {
-            color: darkMagenta;
-        }
-    
-        pre span.string.regexp.highlighter {
-            /* ??? */
-            background-color: #FFF0FF;
-            color: #808
-        }
-    
-        pre span.variable.highlighter,
-        pre span.variable.instance.highlighter {
-            color: #33B
-        }
-    
         pre span.name.function.highlighter {
             color: #06B;
             font-weight: bold
         }
 
-
         pre span.xmltag.all.highlighter,
-        pre span.xmltag.close.highlighter
-        {
+        pre span.xmltag.close.highlighter {
             color: darkgreen;
         }
         pre span.xmltag.attribute.highlighter {
@@ -156,32 +115,33 @@
             color: blue;
             font-weight: semibold;
         }
-        pre span.source.style.highlighter,
-        pre span.xmltag.style.tag,
-        pre span.xmltag.style.open,
-        pre span.xmltag.style.close,
-        pre span.xmltag.style.name,
-        pre span.xmltag.style.attribute
-        {
+        pre span.source.css.highlighter,
+        pre span.xmltag.style.tag.highlighter,
+        pre span.xmltag.style.open.highlighter,
+        pre span.xmltag.style.close.highlighter,
+        pre span.xmltag.style.name.highlighter,
+        pre span.xmltag.style.attribute.highlighter {
             color: green;
         }
     
-        pre span.entity.name.tag.highlighter,
-        pre span.storage.type.highlighter {
-            color: #070;
-            font-weight: bold
-        }
+        /* python
+        pre span.comment.docstring.highlighter { color: darkMagenta; }
+        */
     
-        pre span.variable.self.highlighter,
-        pre span.support.function.highlighter {
-            color: #038;
-            font-weight: bold
+        pre span.entity.name.tag.highlighter {
+            color: brown;
+            font-weight: bold;
+            font-size: 150%;
         }
-    
-        pre span.entity.function.highlighter,
-        pre span.support.magic.highlighter {
-            color: #C00;
-        }        
+        pre span.support.css-property.highlighter {
+            color: blue;
+        }
+        pre span.css.vendor.prefix.highlighter {
+            color: red;
+        }
+        pre span.css.direct.descendant.highlighter {
+            color: navy;
+        }
     </style>
     <style>  
         * { font-family: sans-serif; }

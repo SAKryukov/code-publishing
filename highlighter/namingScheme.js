@@ -10,11 +10,13 @@ const namingScheme = (() => {
 
     const scheme = {
         //non-rule constants: 
+        customWord: "_custom-word_",
         highlighter: 0,
         span: 0,
+        pre: 0,
         //rule names:
         //////////////////////////////////
-        property: 0,
+        property: 0, // css, json
         operator: 0,
         unit: 0, // CSS unit of measurement
         keyword: 0,
@@ -50,12 +52,6 @@ const namingScheme = (() => {
             pascal: 0,
         },
         pascal: { part: 0, },
-        constant: {
-            value: {
-                numeric: 0,
-                character: 0,
-            },
-        },
         magic: { //JavaScript
             strict: 0,
         },
@@ -63,6 +59,10 @@ const namingScheme = (() => {
             css: 0,
             php: 0,
             javascript: 0,
+        },
+        css: {
+            vendor: { prefix: 0, },
+            direct: { descendant: 0, },
         },
         xmltag: {
             all: 0, //support.tag
@@ -72,14 +72,14 @@ const namingScheme = (() => {
                 tag: 0, //entity.tag.style?
                 open: 0, //support.tag.style
                 name: 0, //entity.tag.style, "style"
-                attribite: 0, //'entity.tag.style.attribute'
+                attribute: 0, //'entity.tag.style.attribute'
                 close: 0, //'support.tag.style'
             }, 
             script: {
                 tag: 0, //entity.tag.script?
                 open: 0, //support.tag.script
                 name: 0, //entity.tag.script, "script"
-                attribite: 0, //'entity.tag.script.attribute'
+                attribute: 0, //'entity.tag.script.attribute'
                 close: 0, //'support.tag.script'
             }, 
             open: 0, //support.tag.open
@@ -98,7 +98,7 @@ const namingScheme = (() => {
         for (let key in object)
             if (object[key] && (object[key].constructor == Object))
                 assign(combineName(previousName, key), object[key]);
-            else
+            else if (object[key] == 0)
                 object[key] = combineName(previousName, key);
     }; // recurse
     assign(null, scheme);

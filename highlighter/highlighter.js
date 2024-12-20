@@ -388,7 +388,7 @@ const Highlighter = function Highlighter(options) {
         if (words == null) return null;
         if (words.trim().length < 1) return null;
         const list = words.split(" ").join("|");
-        return { name: "_custom-word_", pattern: new RegExp(`\\b(${list})\\b`, "g") };
+        return { name: namingScheme.customWord, pattern: new RegExp(`\\b(${list})\\b`, "g") };
     }; //createCustomPattern
 
     this.colorize = (code, language, patterns, customWords) => {

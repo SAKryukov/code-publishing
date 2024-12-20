@@ -32,7 +32,7 @@ RuleSet.extend("html", [
                             pattern: /('|")(.*?)(\1)/g
                         },
                         {
-                            name: namingScheme.xmltag.style.attribite,
+                            name: namingScheme.xmltag.style.attribute,
                             pattern: /(\w+)/g
                         }
                     ],
@@ -65,7 +65,7 @@ RuleSet.extend("html", [
                             pattern: /('|")(.*?)(\1)/g
                         },
                         {
-                            name: namingScheme.xmltag.script.attribite,
+                            name: namingScheme.xmltag.script.attribute,
                             pattern: /(\w+)/g
                         }
                     ],
