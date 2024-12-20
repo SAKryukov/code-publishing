@@ -5,7 +5,7 @@
  * @author Craig Campbell
  * @author Sergey A Kryukov
  */
-RuleSet.extend('c', [
+RuleSet.extend("c", [
     {
         matches: {
             1: namingScheme.preprocessor.signature,

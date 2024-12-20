@@ -3,7 +3,7 @@
  *
  * @author Sergey A Kryukov
  */
-RuleSet.extend('json', [
+RuleSet.extend("json", [
     {
         name: namingScheme.operator,
         pattern: /[\[|\]|\{|}]/g
