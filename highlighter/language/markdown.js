@@ -11,8 +11,16 @@ RuleSet.extend("markdown", [
         pattern: /^(#{1,6})\s.+?$/gm
     },
     { 
-        name: namingScheme.keyword, 
-        pattern: /(\*{1}[^\*]+?\*{1})|(\*{2}[^\*]+?\*{2})|(\*{3}[^\*]+?\*{3})/g
+        matches: {
+            1: namingScheme.keyword, 
+            2: namingScheme.keyword,  
+            3: namingScheme.keyword,  
+            4: namingScheme.keyword,  
+            5: namingScheme.keyword,  
+            6: namingScheme.keyword,  
+        },
+        //name: 
+        pattern: /(\*{1})[^\*]+?(\*{1})|(\*{2})[^\*]+?(\*{2})|(\*{3})[^\*]+?(\*{3})/g
     },
     { 
         name: namingScheme.keyword, 
