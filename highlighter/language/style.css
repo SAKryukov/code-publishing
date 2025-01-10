@@ -1,58 +1,131 @@
-/*
-// Rule names, +: used in CSS, ?: unused:
-+ literal.string (base.string-c, base.string-c, base.apostrophe-string, base.apostrophe-string, css, css, html, html, html, html, html, javascript, javascript, json, json, pascal, pascal)
-+ literal.escape (base.string-c, base.string-c, base.apostrophe.character, base.apostrophe.character, base.apostrophe-string, base.apostrophe-string, javascript, javascript, pascal, pascal, pascal, pascal)
-? constant.value.character (base.apostrophe.character, base.apostrophe.character)
-+ comment.text (base.comment-c, base.comment-c, base.comment-number-sign, base.comment-number-sign, css, css, pascal, pascal)
-+ comment.block (base.comment-block-c, base.comment-block-c, html, html)
-? literal.numeric (base.numeric, base.numeric)
-+ preprocessor.signature (c, cpp, csharp)
-+ preprocessor.keyword (c, cpp, csharp)
-+ preprocessor.value (c, cpp, csharp)
-+ keyword (c, c, cpp, cpp, csharp, csharp, java, java, java, javascript, javascript, javascript, javascript, pascal, pascal)
-+ type.keyword (c, c, csharp, csharp, pascal, pascal)
-+ name.function (c, c, java, javascript, javascript)
-+ storage.modifier (c, c)
-+ literal.keyword (csharp, csharp, java, java, javascript, pascal, pascal)
-+ css.numeric (css)
-+ css.unit (css)
-+ property (css, css, json, json)
-+ css.vendor.prefix (css, css)
-? css.sass (css, css)
-+ css.direct.descendant (css, css)
-+ css.class (css, css)
-+ css.id (css, css)
-+ css.pseudo (css, css)
-+ css.selector.name (css, css)
-+ css.value (css)
-? source.php (html, html, html)
-? xmltag.php (html, html)
-+ source.css (html, html, html)
-+ xmltag.style.open (html, html)
-+ xmltag.style.name (html, html)
-+ xmltag.style.attribute (html, html)
-+ xmltag.style.close (html, html)
-+ xmltag.style.tag (html)
-? xmltag.script.open (html, html)
-? xmltag.script.name (html, html)
-? xmltag.script.attribute (html, html)
-? xmltag.script.close (html, html)
-? source.javascript (html)
-? xmltag.script.tag (html)
-? xmltag.open (html)
-+ xmltag.close (html)
-+ xmltag.all (html, html, html)
-? xmltag.special (html)
-? xmltag.name (html)
-+ xmltag.attribute (html, html)
-+ xmltag.operator (html, html)
-+ literal.quote (html, html)
-? xmltag.value (html)
-+ name.namespace (java)
-+ annotation (java, java)
-+ name.class (java, java)
-+ operator (java, java, json, json, pascal, pascal)
-+ magic.strict (javascript)
-+ comment.pascal (pascal, pascal)
-+ assignment (pascal, pascal)
-+ pascal.part (pascal, pascal)*/
+pre span.magic.strict.highlighter {
+    color: darkviolet;
+    font-weight: bold;
+}
+
+pre span.comment.text.highlighter,
+pre span.comment.block.highlighter {
+    color: green;
+}
+
+pre span.comment.pascal.highlighter {
+    color: #367
+}
+pre span.pascal.part.highlighter {
+    color: saddlebrown;
+    letter-spacing: 0.1em;
+}
+pre span.assignment.highlighter {
+    color: darkmagenta;
+}
+
+pre span.keyword.highlighter,
+pre span.storage.modifier.highlighter {
+    color: blue;
+}
+pre span.type.keyword.highlighter {
+    color: brown;
+}
+
+pre span._custom-word_.highlighter {
+    color: darkcyan;
+}
+
+pre span.literal.keyword.highlighter {
+    color: darkviolet;
+}
+
+pre span.annotation.highlighter,
+pre span.preprocessor.signature.highlighter,
+pre span.preprocessor.keyword.highlighter {
+    color: steelBlue;
+    font-weight: bold
+}        
+pre span.preprocessor.value.highlighter {
+    color: sandybrown;
+    font-weight: bold
+}
+
+pre span.operator.highlighter {
+    color: darkMagenta;
+}
+
+pre span.property.highlighter {
+    color: #038;
+    font-weight: bold
+}
+
+pre span.name.namespace.highlighter {
+    color: blue;
+}
+pre span.name.class.highlighter {
+    color: #B06;
+}
+
+pre span.literal.string.highlighter,
+pre span.literal.quote.highlighter,
+pre span.literal.escape.highlighter {
+    color: #AA3300;
+}
+
+pre span.name.function.highlighter {
+    color: #06B;
+    font-weight: bold
+}
+
+pre span.xmltag.all.highlighter,
+pre span.xmltag.close.highlighter {
+    color: blue;
+}
+pre span.xmltag.attribute.highlighter {
+    color: purple;
+    font-style: italic;
+}
+pre span.xmltag.operator.highlighter {
+    color: blue;
+    font-weight: semibold;
+}
+pre span.source.css.highlighter,
+pre span.xmltag.style.tag.highlighter,
+pre span.xmltag.style.open.highlighter,
+pre span.xmltag.style.close.highlighter,
+pre span.xmltag.style.name.highlighter,
+pre span.xmltag.style.attribute.highlighter {
+    color: green;
+}
+
+/* python
+pre span.comment.docstring.highlighter { color: darkMagenta; }
+*/
+
+pre span.css.selector.name.highlighter {
+    color: brown;
+    font-weight: bold;
+}
+pre span.css.class.highlighter {
+    color: blue;
+    font-weight: bold;
+}
+pre span.css.vendor.prefix.highlighter {
+    color: red;
+}
+pre span.css.direct.descendant.highlighter {
+    color: navy;
+}
+pre span.css.id.highlighter {
+    color: darkorchid;
+    font-weight: bold;
+}
+pre span.css.pseudo.highlighter {
+    color: darkgoldenrod;
+    font-weight: bold;
+}
+pre span.css.numeric.highlighter {
+    color: darkorange
+}
+pre span.css.unit.highlighter {
+    color: darkred;
+}
+pre span.css.value.highlighter {
+    color: black;
+}
