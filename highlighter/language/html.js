@@ -100,7 +100,7 @@ RuleSet.extend("html", [
             2: namingScheme.xmltag.special, // ! or / inside <>
             3: namingScheme.xmltag.name,
         },
-        pattern: /(&lt;\??)(\/|\!?)(\w+)/g
+        pattern: /(&lt;\??)(\/|\!?)([^&\s]+)/g
     },
     {
         matches: {
